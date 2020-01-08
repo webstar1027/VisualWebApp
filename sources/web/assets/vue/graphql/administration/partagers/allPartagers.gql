@@ -1,0 +1,33 @@
+query allPartagers ($entiteID: String!) {
+	allPartagers(entiteID: $entiteID) {
+		items {
+			id,
+			partageType,
+			dateCreation,
+			simulation {
+				id,
+				nom
+			},
+			utilisateur {
+				id,
+				nom,
+				email
+			},
+			entite {
+				id,
+				nom
+			},
+			owner {
+				id,
+				nom,
+				code
+			},
+			ownerUtilisateur {
+				id,
+				nom,
+				email
+			}
+		}
+		count
+	}
+}

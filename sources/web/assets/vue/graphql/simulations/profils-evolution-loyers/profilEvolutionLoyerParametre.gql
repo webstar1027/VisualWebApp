@@ -1,0 +1,8 @@
+query profilEvolutionLoyerParametre($simulationID: String!) {
+    profilEvolutionLoyerParametre(simulationID: $simulationID) {
+      items{
+        id,
+        plafonnementDesLoyersPratiquesAuLoyerPlafond
+      }
+  }
+}

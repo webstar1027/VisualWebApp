@@ -1,0 +1,31 @@
+query modeleDamortissements($simulationId: String!, $total: Boolean = false){
+  modeleDamortissements(simulationId: $simulationId) {
+    items @skip(if: $total){
+      id,
+      simulation{
+        nom,
+        description
+      }
+      numero,
+      nom,
+      dureeReprise,
+      structureVentilation,
+      menuiserieVentilation,
+      chauffageVentilation,
+      etancheiteVentilation,
+      ravalementVentilation,
+      electriciteVentilation,
+      plomberieVentilation,
+      ascenseursVentilation,
+      structureAmortissement,
+      menuiserieAmortissement,
+      chauffageAmortissement,
+      etancheiteAmortissement,
+      ravalementAmortissement,
+      electriciteAmortissement,
+      plomberieAmortissement,
+      ascenseursAmortissement
+    }
+    count @include(if: $total)
+  }
+}

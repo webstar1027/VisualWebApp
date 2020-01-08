@@ -1,0 +1,93 @@
+$cb-h-h: 50px;
+
+.carte-box {
+  cursor: pointer;
+  min-height: 250px;
+  box-shadow: 0 0 15px rgba(black, 0.05);
+  margin: 0.8em;
+  width: 315px;
+  &-header {
+    background-image: linear-gradient(to right, $primary 60%, #6ab4f1);
+    border-radius: 0 0 $cb-h-h 0;
+    h6 {
+      line-height: $cb-h-h;
+      font-size: 15px;
+    }
+  }
+
+  &-content {
+    i.material-icons {
+      font-size: 6em;
+      margin-top: 18%;
+      color: #00436f;
+    }
+
+    .cb-item.el-button {
+      padding: 5px;
+      margin-left: 0;
+      cursor: pointer;
+      line-height: 35px;
+      border-radius: 0px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #dee2e6;
+      height: auto;
+
+      > span {
+        display: flex;
+        flex: 1 1 auto;
+        width: 100%;
+        span{
+          display: block;
+        }
+      }
+
+      .cb-item__label {
+        flex: 1 1 auto;
+        text-align: left;
+      }
+
+      .cb-item__value {
+        flex: 0 1 auto;
+        text-align: right;
+        color: black !important;
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        border: 2px solid $primary;
+        border-radius: 50%;
+        height: 3px;
+        width: 3px;
+        margin-right: 10px;
+        transition: all 0.15s ease;
+      }
+
+      &:hover {
+        background: $light-blue;
+        color: $primary;
+        &:before {
+          @include hide;
+        }
+      }
+    }
+  }
+}
+
+.material-icon-hover {
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  $offset: 100px;
+  bottom: $offset;
+  right: $offset;
+  .material-icons {
+    font-size: 17px;
+  }
+}

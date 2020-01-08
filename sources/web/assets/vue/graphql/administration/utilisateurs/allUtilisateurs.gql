@@ -1,0 +1,9 @@
+query allUtilisateurs {
+    allUtilisateurs {
+        items {
+            id,
+            nom,
+            prenom
+        }
+    }
+}

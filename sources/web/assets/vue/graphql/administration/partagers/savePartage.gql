@@ -1,0 +1,5 @@
+mutation savePartage($id: String!, $simulationID: String!, $utilisateurs: [String!]!, $entites: [String!]!, $owner:String!, $partagerType: String!){
+	savePartage(id: $id, simulationID: $simulationID, utilisateurs: $utilisateurs, entites:$entites, owner: $owner, partagerType: $partagerType){
+	 id
+	}
+}

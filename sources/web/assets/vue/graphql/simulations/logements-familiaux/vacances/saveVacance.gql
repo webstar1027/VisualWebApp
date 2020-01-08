@@ -1,0 +1,17 @@
+mutation saveVacance($vacance: VacanceInput!) {
+  saveVacance(vacance: $vacance) {
+    simulation{
+      nom
+    },
+	numeroGroupe,
+	numeroSousGroupe,
+    nomGroupe,
+    information,
+    vacancePeriodique{
+      items{
+           iteration,
+           montant
+      }
+    }
+  }
+}

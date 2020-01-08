@@ -1,0 +1,41 @@
+@import "config/variables";
+@import "config/fonts";
+@import "config/mixins";
+
+//element
+@import "theme/index";
+
+//bootstrap
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+
+@import "modules/base";
+@import "modules/elements";
+@import "modules/typography";
+@import "modules/icons";
+
+@import "components/header";
+@import "components/footer";
+@import "components/sidebar";
+@import "components/loader";
+@import "components/breadcrumbs";
+@import "components/notifications";
+@import "components/wrappers";
+@import "components/cartes";
+@import "components/modals";
+@import "components/auth";
+@import "components/tableau-card";
+@import "components/indices-et-taux";
+@import "components/hypotheses";
+
+@import "custom/buttons";
+@import "custom/tables";
+@import "custom/forms";
+@import "custom/tabs";
+@import "custom/pages";
+@import "custom/misc";
+@import "custom/collapsible";

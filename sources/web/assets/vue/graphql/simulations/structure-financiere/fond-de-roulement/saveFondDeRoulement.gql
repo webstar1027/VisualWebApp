@@ -1,0 +1,21 @@
+mutation saveFondDeRoulement($fondDeRoulement: FondDeRoulementInput!) {
+  saveFondDeRoulement(fondDeRoulement: $fondDeRoulement) {
+       id,
+       nom,
+       type,
+       tauxEvolution,
+       typeEmprunt {
+         id,
+         nom
+       },
+       dateEcheance,
+       deletable,
+       fondDeRoulementPeriodique{
+           items(limit: 50, offset:0){
+             iteration,
+             valeur
+           }
+       }
+
+  }
+}

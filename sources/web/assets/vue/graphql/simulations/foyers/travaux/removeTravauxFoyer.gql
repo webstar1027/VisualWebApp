@@ -1,0 +1,3 @@
+mutation removeTravauxFoyer($travauxFoyerUUID: String!, $simulationId: String!){
+  removeTravauxFoyer(travauxFoyerUUID: $travauxFoyerUUID, simulationId: $simulationId)
+}

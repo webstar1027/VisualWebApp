@@ -1,0 +1,14 @@
+query simulationHistoriques($simulationId: String!) {
+  simulationHistoriques(simulationId: $simulationId) {
+    items {
+      id,
+      note,
+      creePar{
+        id,
+        nom,
+        prenom
+      },
+      dateCreation
+    }
+  }
+}

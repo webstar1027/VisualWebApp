@@ -1,0 +1,9 @@
+# Read more about TDBM available options at: https://thecodingmachine.github.io/tdbm/doc/install_symfony.html
+tdbm:
+    bean_namespace: App\Model
+    dao_namespace: App\Dao
+    naming:
+        exceptions:
+            indices_taux: IndiceTaux
+            indices_taux_periodique: IndiceTauxPeriodique
+            hypotheses: Hypothese

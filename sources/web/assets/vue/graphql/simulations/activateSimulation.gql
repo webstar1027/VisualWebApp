@@ -1,0 +1,5 @@
+mutation activateSimulation($simulationId: String!){
+    activateSimulation(simulationId: $simulationId){
+        id
+    }
+}

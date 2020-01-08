@@ -1,0 +1,3 @@
+mutation removeProduitAutre($produitAutreUUID: String!, $simulationId: String!){
+  removeProduitAutre(produitAutreUUID: $produitAutreUUID, simulationId: $simulationId)
+}

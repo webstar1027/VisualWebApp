@@ -1,0 +1,23 @@
+query typesEmprunts($simulationID: String!){
+  typesEmprunts(simulationID:$simulationID){
+    items{
+      id,
+      numero,
+      nom,
+      tauxInteret,
+      livretA,
+      margeEmprunt,
+      tauxPlancher,
+      dureeEmprunt,
+      tauxProgressivite,
+      dureeAmortissement,
+      revisability,
+      typesEmpruntsPeriodique {
+        items{
+          tauxInteretInitial,
+          tauxPremiereAnnuitePayee
+        }
+      }
+    }
+  }
+}

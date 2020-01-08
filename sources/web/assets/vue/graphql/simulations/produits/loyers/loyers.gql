@@ -1,0 +1,24 @@
+query loyers($simulationId: String!, $type: Int, $total: Boolean = false){
+  loyers(simulationId: $simulationId, type: $type) {
+    items @skip(if: $total){
+      id,
+      simulation{
+        nom,
+        description
+      },
+      nom,
+      tauxDevolution,
+      nombreLogements,
+      montantRls,
+      deletable,
+      type,
+      loyerPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

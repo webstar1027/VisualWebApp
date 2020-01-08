@@ -1,0 +1,15 @@
+query simulationNotes($simulationId: String!) {
+  simulationNotes(simulationId: $simulationId) {
+    items {
+      id,
+      note,
+      creePar{
+        id,
+        nom,
+        prenom
+      },
+      dateCreation,
+      dateModification
+    }
+  }
+}

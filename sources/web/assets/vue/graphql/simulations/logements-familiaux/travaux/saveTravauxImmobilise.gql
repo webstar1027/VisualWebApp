@@ -1,0 +1,35 @@
+mutation saveTravauxImmobilise($travauxImmobilise: TravauxImmobiliseInput!) {
+  saveTravauxImmobilise(travauxImmobilise: $travauxImmobilise) {
+    id,
+    simulation{
+      nom,
+      description
+    },
+    nGroupe,
+    nomCategorie,
+    modeleDamortissement {
+      id,
+      nom
+    },
+    conventionAnru,
+    indexationIcc,
+    anneePremiereEcheance,
+    typeEmpruntTravauxImmobilises {
+      items{
+        montant,
+        datePremiere,
+        quotiteEmprunt,
+        typesEmprunts {
+          id,
+          nom
+        }
+      }
+    },
+    travauxImmobilisesPeriodique {
+      items {
+        iteration,
+        montant
+      }
+    }
+  }
+}

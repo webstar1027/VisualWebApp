@@ -1,0 +1,50 @@
+query demolitionFoyers($simulationId: String!, $total: Boolean = false){
+  demolitionFoyers(simulationId: $simulationId){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nomIntervention,
+      nombreLogements,
+      date,
+      remboursementAnticipe,
+      indexationIcc,
+      prixRevient,
+      fondsPropres,
+      subventionsAnru,
+      subventionsEtat,
+      subventionsEpci,
+      subventionsDepartement,
+      subventionsRegion,
+      subventionsCollecteur,
+      autresSubventions,
+      tauxEvolutionTfpb,
+      tauxEvolutionMaintenance,
+      tauxEvolutionGrosEntretien,
+      totalEmprutns,
+      typeEmpruntDemolitionFoyers{
+        items{
+          montant,
+          datePremiere,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      periodique: demolitionFoyersPeriodique{
+        items{
+          iteration,
+          partCapital,
+          partInterets,
+          tfpb,
+          maintenanceCourante,
+          grosEntretien
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

@@ -1,0 +1,5 @@
+mutation savePatrimoineFoyerParametre($simulationId: String!, $nombrePondereLogement: Int) {
+  savePatrimoineFoyerParametre(simulationId:$simulationId, nombrePondereLogement:$nombrePondereLogement) {
+    nombrePondereLogement
+  }
+}

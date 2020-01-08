@@ -1,0 +1,3 @@
+mutation removeAutreCharge($autreChargeId: String!, $simulationId: String!) {
+  removeAutreCharge(autreChargeId: $autreChargeId, simulationId: $simulationId)
+}

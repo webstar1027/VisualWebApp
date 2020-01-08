@@ -1,0 +1,14 @@
+query notifications {
+  notifications {
+    items {
+      utilisateur{
+        id,
+        nom
+      },
+      id,
+      type,
+      message,
+      statut
+    }
+  }
+}

@@ -1,0 +1,23 @@
+query ccmi($simulationId: String!, $total: Boolean = false){
+  ccmi(simulationId: $simulationId){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nomOperation,
+      prixVente,
+      tauxMargeBrute,
+      portageFondsPropres,
+      coutsInternesStockes,
+      periodique: ccmiPeriodique{
+        items {
+          iteration,
+          nombreMaisonsLivrees
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

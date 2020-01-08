@@ -1,0 +1,27 @@
+query hypotheses($simulationID: String!){
+  hypotheses(simulationID:$simulationID){
+    items{
+      simulation{
+        nom
+      },
+      id,
+      mobilisation,
+      maintenance,
+      maintenanceDiffere,
+      grosEntretien,
+      grosEntretienDiffere,
+      provisionGros,
+      provisionGrosDiffere,
+      tauxVacance,
+      tauxVacanceGarages,
+      tauxVacanceCommerces,
+      applicationFrais,
+      fraisPersonnel,
+      fraisGestion,
+      seuilDeclenchement,
+      tauxDirecte,
+      tauxVefa,
+      tauxRehabilitation
+    }
+  }
+}

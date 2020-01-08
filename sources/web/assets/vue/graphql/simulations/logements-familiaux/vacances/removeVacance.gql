@@ -1,0 +1,3 @@
+mutation removeVacance($vacanceId: String!, $simulationId: String!) {
+  removeVacance(vacanceId: $vacanceId, simulationId: $simulationId)
+}

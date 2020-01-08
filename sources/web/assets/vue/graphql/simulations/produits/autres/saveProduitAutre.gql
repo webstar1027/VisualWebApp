@@ -1,0 +1,19 @@
+mutation saveProduitAutre($produitAutre: ProduitAutreInput!) {
+  saveProduitAutre(produitAutre: $produitAutre) {
+    id,
+    simulation{
+      nom,
+      description
+    },
+    nom,
+    type,
+		montants,
+    nature,
+    produitsAutresPeriodique {
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

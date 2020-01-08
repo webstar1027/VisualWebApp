@@ -1,0 +1,25 @@
+.tableau-card{
+    height: 100%;
+    position: relative;
+    background: #fafafa;
+    .doughnut-text{
+        $size: 70%;
+        $margin: (100% - $size) / 2;
+        position: absolute;
+        top:0;
+        left: 0;
+        width: $size;
+        height: $size;
+        margin: $margin;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;  
+    }
+
+    #doughnut-chart{
+        position: relative;
+        z-index: 4;
+    }
+}

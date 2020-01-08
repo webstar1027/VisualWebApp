@@ -1,0 +1,77 @@
+.el-dialog {
+  border-radius: 15px;
+
+  &__header {
+    text-align: initial;
+    padding: 30px 20px 20px;
+  }
+  &__title {
+    font-weight: 800;
+    font-size: 20px;
+    color: $black;
+  }
+
+  //modale
+  &__wrapper.modale-dialog {
+    .modale-form {
+      .el-input__inner {
+        width: 75%;
+      }
+    }
+
+    .years-carousel {
+      > span {
+        display: block !important;
+      }
+      .owl-carousel {
+        .owl-stage-outer {
+          $w: 91%;
+          width: $w;
+          margin: 0 (100% - $w) / 2;
+        }
+      }
+      .owl-theme {
+        .owl-nav {
+          display: none;
+        }
+      }
+
+      .owl-dots {
+        .owl-dot {
+          margin-top: 25px;
+          &.active {
+            span {
+              background: #000;
+            }
+          }
+        }
+      }
+
+      .el-button.custom-nav {
+        position: absolute;
+        top: 24px;
+        z-index: 5;
+        padding: 0 5px;
+        &.nxt {
+          right: 0;
+        }
+        .material-icons {
+          width: 24px;
+        }
+      }
+    }
+
+    .dialog-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      align-items: center;
+      .el-button {
+        min-width: 170px;
+        &:last-child {
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+}

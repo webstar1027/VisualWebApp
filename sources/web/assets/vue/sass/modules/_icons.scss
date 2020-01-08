@@ -1,0 +1,12 @@
+.material-icons {
+  &.icon {
+    &-size {
+      &-large {
+        font-size: 30px;
+      }
+      &-larger {
+        font-size: 40px;
+      }
+    }
+  }
+}

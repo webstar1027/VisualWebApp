@@ -1,0 +1,10 @@
+query patrimoinesfindByNumeroGroupe($simulationID: String!, $numeroGroupe: Int!){
+  patrimoinesfindByNumeroGroupe(simulationID: $simulationID, numeroGroupe: $numeroGroupe){
+    items{
+      nGroupe,
+      nSousGroupe,
+      nomGroupe,
+      informations
+    }
+  }
+}

@@ -1,0 +1,19 @@
+query autresCharges($simulationId: String!, $total: Boolean = false) {
+  autresCharges(simulationId: $simulationId) {
+    items @skip(if: $total){
+      id,
+      numero,
+      libelle,
+      indexation,
+      tauxDevolution,
+      nature,
+      autresChargesPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

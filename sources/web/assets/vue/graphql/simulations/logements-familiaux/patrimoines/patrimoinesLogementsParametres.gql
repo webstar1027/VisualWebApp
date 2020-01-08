@@ -1,0 +1,8 @@
+query patrimoinesLogementsParametres($simulationID: String!){
+  patrimoinesLogementsParametres(simulationID: $simulationID){
+   items{
+    nombrePondere,
+    montantLoyers
+  }
+  }
+}

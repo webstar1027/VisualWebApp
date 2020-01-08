@@ -1,0 +1,45 @@
+mutation saveNouveauxFoyer($nouveaux: NouveauxFoyerInput!) {
+  saveNouveauxFoyer(nouveauxFoyer: $nouveaux) {
+    simulation{
+      nom
+    },
+    id,
+    numero,
+    nomIntervention,
+    nature,
+    nombreLogements,
+    anneeAgrement,
+    dateAcquisition,
+    dateTravaux,
+    indexationIcc,
+    prixRevient,
+    fondsPropres,
+    subventionsEtat,
+    subventionsAnru,
+    subventionsEpci,
+    subventionsDepartement,
+    subventionsRegion,
+    subventionsCollecteur,
+    autresSubventions,
+    redevancesTauxEvolution,
+    tfpbTauxEvolution,
+    maintenanceTauxEvolution,
+    grosTauxEvolution,
+    coutFoncier,
+    totalEmprunt,
+    modeleDamortissement {
+      id,
+      nom
+    },
+    typeEmpruntNouveauxFoyer{
+      items{
+        montant,
+        datePremiere,
+        typesEmprunts {
+          id,
+          nom
+        }
+      }
+    }
+  }
+}

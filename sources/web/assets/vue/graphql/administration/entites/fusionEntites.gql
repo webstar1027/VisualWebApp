@@ -1,0 +1,21 @@
+mutation fusionEntites(
+    $nom: String!,
+    $siren: String!,
+    $type: String!,
+    $code: String!,
+    $typeOrganisme: String,
+    $codeOrganisme: String,
+    $entiteIds: [String!]!
+    ){
+        fusionEntites (
+            nom: $nom,
+            siren: $siren,
+            type: $type,
+            code: $code,
+            typeOrganisme: $typeOrganisme,
+            codeOrganisme: $codeOrganisme,
+            entiteIds: $entiteIds
+            ) {
+                id,
+    }
+}

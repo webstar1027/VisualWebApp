@@ -1,0 +1,3 @@
+query simulationId($nomSimulation: String!){
+simulationId(nomSimulation:$nomSimulation)
+}

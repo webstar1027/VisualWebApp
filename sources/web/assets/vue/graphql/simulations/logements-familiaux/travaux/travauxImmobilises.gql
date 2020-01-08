@@ -1,0 +1,77 @@
+query travauxImmobilises($simulationId: String!, $total: Boolean = false){
+  travauxImmobilises(simulationId: $simulationId){
+    items @skip(if: $total) {
+      id,
+      simulation{
+        nom,
+        description
+      },
+      nGroupe,
+      nomCategorie,
+      modeleDamortissement {
+        id,
+        nom
+      },
+      conventionAnru,
+      indexationIcc,
+      anneePremiereEcheance,
+      foundsPropres,
+      subventionsEtat,
+      subventionsAnru,
+      subventionsEpci,
+      subventionsDepartement,
+      subventionsRegion,
+      subventionsCollecteur,
+      autresSubventions,
+      nSousGroupe,
+      nomGroupe,
+      information,
+      profilEvolutionLoyer{
+        id,
+        numero,
+        nom
+      },
+      loyerMensuelInitial,
+      numeroTranche,
+      nomTranche,
+      surfaceTraitee,
+      variationSurfaceQuittance,
+      nombreLogement,
+      variationNombreLogement,
+      anneeAgreement,
+      dateOrdreService,
+      dateFinTravaux,
+      tauxVariationLoyer,
+      dateApplication,
+      prixRevient,
+      logementConventionnes,
+      surfaceMoyenne,
+      loyerMensuelMoyen,
+      variationLoyer,
+      anneeApplication,
+      dureeChantier,
+      montantTravaux,
+      type,
+      typeEmpruntTravauxImmobilises {
+        items{
+          montant,
+          datePremiere,
+          quotiteEmprunt,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      travauxImmobilisesPeriodique {
+        items {
+          iteration,
+          montant,
+          nombreAgrement,
+          logement
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

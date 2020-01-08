@@ -1,0 +1,5 @@
+mutation acceptInvitationEntite ($entiteID: String!, $utilisateurID: String!) {
+    acceptInvitationEntite (entiteID: $entiteID, utilisateurID: $utilisateurID) {
+        statut
+    }
+}

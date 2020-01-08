@@ -1,0 +1,22 @@
+mutation saveSimulation($id: String,$annee: String!,$entite: String!,$nom: String!,$description:String,$estVerrouillee:Boolean!,$estPartagee:Boolean!,$estFusionnee:Boolean!){
+    saveSimulation(id:$id, annee:$annee, entite:$entite, nom:$nom, description:$description, estVerrouillee:$estVerrouillee, estPartagee:$estPartagee, estFusionnee:$estFusionnee){
+        id,
+        nom,
+        entite{
+            id,
+            nom,
+            code
+        },
+        anneeDeReference,
+        dateModification,
+        modifiePar{
+            nom,
+            prenom
+        },
+        incrementation,
+        description,
+        verrouillePar {
+            id
+        }
+    }
+}

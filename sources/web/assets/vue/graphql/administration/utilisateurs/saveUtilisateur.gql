@@ -1,0 +1,10 @@
+mutation saveUtilisateur($utilisateurID: String, $nom: String!, $prenom: String!, $email: String!, $motDePasse: String, $telephone: String, $fonction: String, $estActive: Boolean!, $roleID: String, $entiteID: [String!]){
+    saveUtilisateur (utilisateurID: $utilisateurID, nom: $nom, prenom: $prenom, email: $email, motDePasse: $motDePasse, telephone: $telephone, fonction: $fonction, estActive: $estActive, roleID: $roleID, entiteID: $entiteID) {
+        id,
+        nom,
+        prenom,
+        email,
+        fonction,
+        telephone
+    }
+}

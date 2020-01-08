@@ -1,0 +1,3 @@
+mutation removeAccessionCodification($codificationUUID: String!, $simulationId: String!) {
+  removeAccessionCodification(codificationUUID: $codificationUUID, simulationId: $simulationId)
+}

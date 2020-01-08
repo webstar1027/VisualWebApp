@@ -1,0 +1,28 @@
+query simulations ($entiteID: String, $anneeDeReference: String, $nom: String, $ensembleId: String, $entiteType: String, $code: String){
+  simulations(entiteID: $entiteID, anneeDeReference: $anneeDeReference, nom: $nom, ensembleId: $ensembleId, entiteType: $entiteType, code: $code) {
+    items(limit: 10, offset: 0){
+      id,
+      nom,
+      utilisateur {
+        id
+      }
+      entite{
+        id,
+        nom,
+        code
+      },
+      anneeDeReference,
+      dateModification,
+      modifiePar{
+        nom,
+        prenom
+      },
+      incrementation,
+      description,
+      supprime,
+      verrouillePar {
+        id
+      }
+    }
+  }
+}

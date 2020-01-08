@@ -1,0 +1,3 @@
+query referentEntite($entiteID: String!) {
+    referentEntite(entiteID: $entiteID)
+}

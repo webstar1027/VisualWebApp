@@ -1,0 +1,5 @@
+mutation denyInvitationEntite ($entiteID: String!, $utilisateurID: String!) {
+    denyInvitationEntite (entiteID: $entiteID, utilisateurID: $utilisateurID) {
+        statut
+    }
+}

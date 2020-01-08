@@ -1,0 +1,115 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.4.4",
+        "@babel/plugin-transform-runtime": "^7.4.3",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/runtime": "^7.4.3",
+        "@fortawesome/fontawesome-free": "^5.7.2",
+        "@symfony/webpack-encore": "^0.28.0",
+        "@vue/component-compiler-utils": "1.3.1",
+        "@vue/test-utils": "^1.0.0-beta.29",
+        "apollo-cache-inmemory": "^1.4.3",
+        "apollo-client": "^2.4.13",
+        "apollo-link": "^1.2.8",
+        "apollo-link-error": "^1.1.7",
+        "apollo-link-http": "^1.5.11",
+        "axios": "^0.18.0",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-jest": "^24.7.1",
+        "babel-loader": "^8.0.5",
+        "element-ui": "^2.9.1",
+        "graphql": "^14.1.1",
+        "graphql-tag": "^2.10.1",
+        "jest": "^24.7.1",
+        "lodash": "^4.17.11",
+        "multi-cascader-base-ele": "^1.0.12",
+        "node-sass": "^4.12.0",
+        "sass-loader": "^7.1.0",
+        "vue": "^2.6.10",
+        "vue-apollo": "^3.0.0-beta.28",
+        "vue-jest": "^3.0.4",
+        "vue-loader": "^15.6.2",
+        "vue-router": "^3.0.6",
+        "vue-template-compiler": "2.6.10",
+        "vuex": "^3.1.0",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress",
+        "test": "jest --coverage"
+    },
+    "dependencies": {
+        "bootstrap": "^4.3.1",
+        "chart.js": "^2.8.0",
+        "detect-file": "^1.0.0",
+        "material-design-icons": "^3.0.1",
+        "mathjs": "^6.0.3",
+        "moment": "^2.24.0",
+        "popper.js": "^1.14.7",
+        "vue-bootstrap-typeahead": "^0.2.6",
+        "vue-chartjs": "^3.4.2",
+        "vue-notification": "^1.3.16",
+        "vue-owl-carousel": "^2.0.3",
+        "vue-the-mask": "^0.11.1",
+        "vue-toasted": "^1.1.27",
+        "vuedraggable": "^2.23.2",
+        "vuejs-dialog": "^1.4.0"
+    },
+    "browserslist": [
+        "> 0.5%",
+        "last 2 versions",
+        "Firefox ESR",
+        "not dead"
+    ],
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "modules": false
+                }
+            ]
+        ],
+        "env": {
+            "test": {
+                "presets": [
+                    [
+                        "@babel/preset-env",
+                        {
+                            "targets": {
+                                "node": "current"
+                            }
+                        }
+                    ]
+                ]
+            }
+        },
+        "plugins": [
+            "@babel/plugin-transform-runtime"
+        ]
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "vue"
+        ],
+        "transform": {
+            "^.+\\.js$": "babel-jest",
+            "^.+\\.vue$": "vue-jest"
+        },
+        "transformIgnorePatterns": [
+            "<rootDir>/node_modules/"
+        ],
+        "verbose": true,
+        "coverageDirectory": "<rootDir>/build/coverage/javascript/",
+        "collectCoverageFrom": [
+            "<rootDir>/assets/vue/**/*.{js,vue}",
+            "!**/specs/**"
+        ]
+    }
+}

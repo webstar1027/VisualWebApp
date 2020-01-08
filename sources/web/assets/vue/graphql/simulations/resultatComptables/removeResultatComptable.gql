@@ -1,0 +1,3 @@
+mutation removeResultatComptable($resultatComptableUUID: String!, $simulationId: String!){
+  removeResultatComptable(resultatComptableUUID: $resultatComptableUUID, simulationId: $simulationId)
+}

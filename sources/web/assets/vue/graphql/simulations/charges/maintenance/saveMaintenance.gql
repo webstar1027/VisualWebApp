@@ -1,0 +1,17 @@
+mutation saveMaintenance($maintenance: MaintenanceInput!) {
+  saveMaintenance(maintenance: $maintenance) {
+    numero,
+    nom,
+    regie,
+    tauxDevolution,
+    indexation,
+    type,
+    nature,
+    maintenancePeriodique{
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+mutation saveFraisStructure($fraiStructure: FraiStructureInput!) {
+  saveFraisStructure(fraiStructure: $fraiStructure) {
+    libelle,
+    indexation,
+    tauxDevolution,
+    type,
+    fraisStructuresPeriodique{
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

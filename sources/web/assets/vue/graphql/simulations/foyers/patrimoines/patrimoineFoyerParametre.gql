@@ -1,0 +1,6 @@
+query patrimoineFoyerParametre($simulationId: String!) {
+  patrimoineFoyerParametre(simulationId:$simulationId) {
+    id,
+    nombrePondereLogement
+  }
+}

@@ -1,0 +1,19 @@
+.el-breadcrumb{
+    background: $light-blue;
+    padding: 15px;
+    font-size: 11px;
+    *{
+        color: darken($primary,30%) !important;
+    }
+    &__inner{
+        &.is-link{
+            font-weight: 400;
+
+        }
+    }
+
+    &__separator{
+        font-weight: 400;
+    }
+
+}

@@ -1,0 +1,27 @@
+query vefa($simulationId: String!, $type: String!, $total: Boolean = false ) {
+  vefa(simulationId: $simulationId, type: $type) {
+    items @skip(if: $total) {
+      id,
+      numero,
+      nomOperation,
+      nomCategorie,
+      directSci,
+      pourcentageDetention,
+      nombreLogement,
+      prixVente,
+      tauxMargeBrute,
+      tauxEvolution,
+      dureePeriodeConstruction,
+      type,
+      vefaPeriodique {
+        items {
+          iteration,
+          coutsInternes,
+          portageFp,
+          nombreLogements
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

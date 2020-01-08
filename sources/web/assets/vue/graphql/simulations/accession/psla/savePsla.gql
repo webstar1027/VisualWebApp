@@ -1,0 +1,35 @@
+mutation savePsla($psla: PslaInput!) {
+  savePsla(psla: $psla) {
+    simulation{
+      nom
+    },
+    id,
+    numero,
+    nom,
+    directSci,
+    detention,
+    operationStock,
+    nombreLogements,
+    prixVente,
+    tauxBrute,
+    dureeConstruction,
+    dateLivraison,
+    loyerMensuel,
+    tauxEvolution,
+    dureePhase,
+    montantSubventions,
+    montantEmprunts,
+    total,
+    type,
+    typeEmpruntPsla{
+      items{
+        montant,
+        datePremiere,
+        typesEmprunts {
+          id,
+          nom
+        }
+      }
+    }
+  }
+}

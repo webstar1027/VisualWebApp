@@ -1,0 +1,109 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Deploy a bastion for accessing the database
+
+Parameters:
+  EnvironmentName:
+    Description: An environment name that will be prefixed to resource names
+    Type: String
+
+  VPCStackName:
+    Description: The name of the parent networking stack in order to locate and reference resources created by that stack
+    Type: String
+
+  MaxSizeASG:
+    Description: Enter the Max Size for the ASG
+    Type: Number
+    Default: 1
+
+  MinSizeASG:
+    Description: Enter the Min Size for the ASG
+    Type: Number
+    Default: 1
+
+  DesiredCapacityASG:
+    Description: Enter the desired capacity for the ASG
+    Type: Number
+    Default: 1
+
+  KeyName:
+    Description: EC2 instance key name
+    Type: String
+
+  InstanceType:
+    Description: EC2 instance type
+    Type: String
+    Default: t3.micro
+
+  InstanceSGAllowSSHCIDR:
+    Description: The IP address or range in CIDR notation to allow database access in security group
+    Type: String
+
+Mappings: 
+  RegionMap: 
+    eu-central-1: 
+      HVM64: "ami-00aa4671cbf840d82"    
+
+Resources:
+  BastionAutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      #AutoScalingGroupName: bastion-auto-scaling-group      
+      DesiredCapacity: !Ref DesiredCapacityASG
+      LaunchConfigurationName: !Ref BastionLaunchConfig 
+      MaxSize: !Ref MaxSizeASG
+      MinSize: !Ref MinSizeASG
+      Tags:
+        - Key: Name
+          Value: !Sub "ec2-asg-bastion-${EnvironmentName}"
+          PropagateAtLaunch: 'true'
+        - Key: Environment
+          Value: !Ref EnvironmentName
+          PropagateAtLaunch: 'true'
+      VPCZoneIdentifier:
+        Fn::Split:
+          - "," 
+          - Fn::ImportValue:
+              !Join [':', [!Ref 'VPCStackName', 'PublicSubnets']]
+
+  BastionLaunchConfig: 
+    Type: AWS::AutoScaling::LaunchConfiguration
+    Properties: 
+      KeyName: !Ref KeyName
+      ImageId: !FindInMap [ RegionMap, !Ref "AWS::Region", HVM64 ]
+      SecurityGroups: 
+        - !Ref BastionSecurityGroup
+      InstanceType: !Ref "InstanceType"
+      #LaunchConfigurationName: BastionLaunchConfiguration
+
+  BastionSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Access to the bastion host
+      VpcId:
+        Fn::ImportValue:
+          !Join [':', [!Ref 'VPCStackName', 'VPC']]
+      SecurityGroupIngress:
+          # Allow ssh access to instance from specified CIDR
+          - CidrIp: !Ref InstanceSGAllowSSHCIDR
+            IpProtocol: tcp
+            FromPort: 22
+            ToPort: 22
+
+Outputs: 
+  AutoscalingGroupId: 
+    Description: "Bastion auto-scaling group name"
+    Value: !Ref BastionAutoScalingGroup
+    Export:
+      Name: !Join [ ':', [ !Ref 'AWS::StackName', 'AutoScalingGroupId' ] ]
+
+  LaunchConfigId:
+    Description: "Bastion launch config name"
+    Value: !Ref "BastionLaunchConfig"
+    Export:
+      Name: !Join [ ':', [ !Ref 'AWS::StackName', 'LaunchConfigId' ] ]
+
+  SecurityGroupId:
+    Description: "Bastion security group ID"
+    Value: !Ref "BastionSecurityGroup"
+    Export:
+      Name: !Join [ ':', [ !Ref 'AWS::StackName', 'SecurityGroupId' ] ]

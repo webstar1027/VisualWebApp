@@ -1,0 +1,15 @@
+query notificationEntites {
+  notificationEntites {
+    items {
+      entite{
+        id,
+        nom
+      }
+      utilisateur{
+        id,
+        nom
+      },
+      statut
+    }
+  }
+}

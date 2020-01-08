@@ -1,0 +1,3 @@
+mutation removeOperation($operationUUID: String!, $simulationId: String!){
+  removeOperation(operationUUID: $operationUUID, simulationId: $simulationId)
+}

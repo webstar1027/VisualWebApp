@@ -1,0 +1,5 @@
+mutation saveSimulationNote($id: String, $simulationId: String!,$note: String!){
+  saveSimulationNote(id:$id, simulationId:$simulationId, note:$note) {
+    id
+  }
+}

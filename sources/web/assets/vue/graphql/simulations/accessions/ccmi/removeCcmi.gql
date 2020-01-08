@@ -1,0 +1,3 @@
+mutation removeCcmi($ccmiId: String!, $simulationId: String!) {
+  removeCcmi(ccmiId: $ccmiId, simulationId: $simulationId)
+}

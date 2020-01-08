@@ -1,0 +1,13 @@
+mutation saveCgllsAncol($cgllsAncolsID : String!, $simulationID: String!, $periodique: String!){
+    saveCgllsAncol(cgllsAncolsID: $cgllsAncolsID, simulationID: $simulationID, periodique: $periodique){
+    	id,
+    	type,
+		cgllsAncolsPeriodique{
+			count,
+			items(limit:50, offset:0){
+				iteration,
+				valeur
+			}
+		}
+    }
+}

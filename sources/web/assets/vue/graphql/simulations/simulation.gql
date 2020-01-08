@@ -1,0 +1,20 @@
+query simulation($simulationID: String!) {
+  simulation(simulationID: $simulationID) {
+    id,
+    nom,
+    incrementation,
+    anneeDeReference,
+    entite{
+      id
+      nom,
+      code
+    },
+    description,
+    estPartagee,
+    estVerrouillee,
+    estFusionnee,
+    verrouillePar {
+      id
+    }
+  }
+}

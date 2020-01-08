@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create ECR registry
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterLabels:
+      RegistryName:
+        default: Registry name
+      NumberOfImagesToKeep:
+        default: Number of images to keep
+
+Parameters:
+  RegistryName:
+    Type: String
+    Default: visial-web
+
+  NumberOfImagesToKeep:
+    Type: Number
+    Default: 10
+
+Resources:
+  VisialWebECR:
+    Type: AWS::ECR::Repository
+    Properties:
+      LifecyclePolicy:
+        LifecyclePolicyText: !Sub '{
+          "rules": [
+            {
+              "rulePriority": 1,
+              "description": "Expire images other than last ${NumberOfImagesToKeep}",
+              "selection": {
+                  "tagStatus": "any",
+                  "countType": "imageCountMoreThan",                 
+                  "countNumber": ${NumberOfImagesToKeep}
+              },
+              "action": {
+                  "type": "expire"
+              }
+            }
+          ]
+        }'
+      RepositoryName: !Ref RegistryName
+      Tags:
+        - Key: "Project"
+          Value: "Visial Web"
+        - Key: "Name"
+          Value: !Ref RegistryName
+
+Outputs:    
+  VisialWebECRARN:
+    Description: Visial Web ECR Repository ARN.
+    Value: !GetAtt VisialWebECR.Arn    

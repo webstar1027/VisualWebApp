@@ -1,0 +1,39 @@
+mutation saveTravauxFoyer($travaux: TravauxFoyerInput!) {
+  saveTravauxFoyer(travauxFoyer: $travaux) {
+    simulation{
+      nom
+    },
+    id,
+    numero,
+    nomIntervention,
+    nombreLogements,
+    anneeAgrement,
+    dateAcquisition,
+    dateTravaux,
+    indexationIcc,
+    prixRevient,
+    fondsPropres,
+    subventionsEtat,
+    subventionsAnru,
+    subventionsEpci,
+    subventionsDepartement,
+    subventionsRegion,
+    subventionsCollecteur,
+    autresSubventions,
+    totalEmprunt,
+    modeleDamortissement {
+      id,
+      nom
+    },
+    typeEmpruntTravauxFoyer{
+      items{
+        montant,
+        datePremiere,
+        typesEmprunts {
+          id,
+          nom
+        }
+      }
+    }
+  }
+}

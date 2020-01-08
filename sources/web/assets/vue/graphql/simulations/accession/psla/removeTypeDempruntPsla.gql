@@ -1,0 +1,6 @@
+mutation removeTypeDempruntPsla($typesEmpruntsUUID: String!, $pslaUUID: String!) {
+  removeTypeDempruntPsla(
+    typesEmpruntsUUID: $typesEmpruntsUUID,
+    pslaUUID: $pslaUUID
+  )
+}

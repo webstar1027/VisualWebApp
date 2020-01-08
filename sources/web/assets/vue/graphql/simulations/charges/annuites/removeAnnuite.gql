@@ -1,0 +1,3 @@
+mutation removeAnnuite($annuiteUUID: String!, $simulationId: String!){
+  removeAnnuite(annuiteUUID: $annuiteUUID, simulationId: $simulationId)
+}

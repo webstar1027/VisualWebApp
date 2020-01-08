@@ -1,0 +1,3 @@
+mutation removeCodification($codificationUUID: String!, $simulationId: String!) {
+  removeCodification(codificationUUID: $codificationUUID, simulationId: $simulationId)
+}

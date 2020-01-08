@@ -1,0 +1,25 @@
+query annuites($simulationId: String!, $type: Int, $total: Boolean = false) {
+  annuites(simulationId: $simulationId, type: $type) {
+    items @skip(if: $total) {
+      id,
+      simulation{
+        nom,
+        description
+      },
+      numero,
+      capitalRestantPatrimoine,
+      priseIcneAcne,
+      libelle,
+      nature,
+      type,
+      deletable,
+      annuitePeriodique{
+        items{
+          iteration,
+          value,
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

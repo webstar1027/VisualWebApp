@@ -1,0 +1,3 @@
+query referentEnsemble($ensembleID: String!) {
+    referentEnsemble(ensembleID: $ensembleID)
+}

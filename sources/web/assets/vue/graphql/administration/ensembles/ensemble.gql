@@ -1,0 +1,16 @@
+query ensemble($ensembleID: String!) {
+    ensemble(ensembleID: $ensembleID) {
+        id,
+        nom,
+        description,
+        estActive,
+        entitesByReferentsEnsembles {
+            id,
+            nom
+        },
+        entitesByEnsemblesEntites {
+            id,
+            nom
+        }
+    }
+}

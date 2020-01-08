@@ -1,0 +1,10 @@
+mutation savePortageTresorerieParametre($simulationID: String!, $soldeEmplois: Float, $detteFournisseurs: Float, $promotionAccession: Float, $tauxInteretFinancement: Float, $tauxInteretConcours: Float){
+  savePortageTresorerieParametre(simulationID: $simulationID, soldeEmplois: $soldeEmplois, detteFournisseurs: $detteFournisseurs, promotionAccession: $promotionAccession, tauxInteretFinancement: $tauxInteretFinancement, tauxInteretConcours: $tauxInteretConcours){
+    id,
+    soldeEmplois,
+    detteFournisseurs,
+    promotionAccession,
+    tauxInteretFinancement,
+    tauxInteretConcours
+  }
+}

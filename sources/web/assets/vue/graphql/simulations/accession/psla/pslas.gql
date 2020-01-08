@@ -1,0 +1,48 @@
+query pslas($simulationId: String!, $type: Int!, $total: Boolean = false){
+  pslas(simulationId: $simulationId, type: $type){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nom,
+      directSci,
+      detention,
+      operationStock,
+      nombreLogements,
+      prixVente,
+      tauxBrute,
+      dureeConstruction,
+      dateLivraison,
+      loyerMensuel,
+      tauxEvolution,
+      dureePhase,
+      montantSubventions,
+      montantEmprunts,
+      total,
+      type,
+      typeEmpruntPsla{
+        items{
+          montant,
+          datePremiere,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      periodique: pslaPeriodique{
+        items{
+          iteration,
+          contratsAccession,
+          leveesOption,
+          portageFp,
+          nombreLogements,
+          coutsInternes
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

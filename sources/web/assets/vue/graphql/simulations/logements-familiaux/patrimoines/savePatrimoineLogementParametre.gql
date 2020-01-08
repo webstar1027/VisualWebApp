@@ -1,0 +1,5 @@
+mutation savePatrimoineLogementParametre($simulationId: String!, $nombrePondere: Int, $montantLoyers: Float){
+       savePatrimoineLogementParametre(simulationId: $simulationId, nombrePondere: $nombrePondere, montantLoyers: $montantLoyers ){
+           id
+           }
+}

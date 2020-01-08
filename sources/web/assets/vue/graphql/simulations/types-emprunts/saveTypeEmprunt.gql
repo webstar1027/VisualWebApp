@@ -1,0 +1,5 @@
+mutation saveTypeEmprunt($typeEmprunt: TypeEmpruntInput!) {
+  saveTypeEmprunt(typeEmprunt: $typeEmprunt) {
+   nom
+  }
+}

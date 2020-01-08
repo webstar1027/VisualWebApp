@@ -1,0 +1,31 @@
+query patrimoines($simulationID: String!, $total: Boolean = false){
+  patrimoines(simulationID: $simulationID){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      profilsEvolutionLoyers{
+        id,
+        numero,
+        nom
+      },
+      id,
+      nGroupe,
+      nSousGroupe,
+      nomGroupe,
+      informations,
+      conventionne,
+      surfaceQuittancee,
+      nombreLogements,
+      loyerMensuel,
+      loyerMensuelPlafond,
+      secteurFinancier,
+      zoneGeographique,
+      natureOperation,
+      typeHabitat,
+      rehabilite,
+      anneeMes
+    }
+    count @include(if: $total)
+  }
+}

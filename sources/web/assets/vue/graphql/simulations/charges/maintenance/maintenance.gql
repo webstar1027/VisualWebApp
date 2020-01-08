@@ -1,0 +1,21 @@
+query maintenance($simulationId: String!, $total: Boolean = false) {
+  maintenance(simulationId: $simulationId) @skip(if: $total) {
+    items{
+      uuid,
+      numero,
+      nom,
+      regie,
+      tauxDevolution,
+      indexation,
+      nature,
+      type,
+      maintenancePeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+  }
+  maintenanceCount (simulationId: $simulationId) @include(if: $total)
+}

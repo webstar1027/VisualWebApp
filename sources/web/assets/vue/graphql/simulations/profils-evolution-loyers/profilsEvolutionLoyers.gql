@@ -1,0 +1,20 @@
+query profilsEvolutionLoyers($simulationID: String!){
+  profilsEvolutionLoyers(simulationID:$simulationID){
+    items{
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nom,
+      appliquerIrl,
+      profilsEvolutionLoyersPeriodique{
+        items{
+          iteration,
+          s1,
+          s2
+        }
+      }
+    }
+  }
+}

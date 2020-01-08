@@ -1,0 +1,5 @@
+mutation fusionSimulations($nom: String!, $simulationId1: String!, $simulationId2: String!){
+    fusionSimulations(nom: $nom, simulationId1: $simulationId1, simulationId2: $simulationId2){
+        id
+    }
+}

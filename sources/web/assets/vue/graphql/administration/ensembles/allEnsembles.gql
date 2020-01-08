@@ -1,0 +1,8 @@
+query allEnsembles {
+  allEnsembles {
+  	items {
+  		id,
+    	nom
+  	}
+  }
+}

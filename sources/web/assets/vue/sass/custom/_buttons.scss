@@ -1,0 +1,67 @@
+button,
+.button,
+.el-button {
+  font-family: inherit;
+}
+
+.el-button {
+  &--default {
+    background: transparent;
+    color: inherit;
+    border: none;
+  }
+
+  &--primary {
+    border: none;
+  }
+
+  &--outline{
+    &-primary{
+      color: $primary !important;
+      border-color: $primary !important;
+    }
+  }
+
+  &:disabled {
+    &,&:hover{
+      color: black;
+      background: $border-color-light;
+    }
+    
+  }
+
+  &.border,
+  &.outline {
+    border-style: solid;
+    border-color: currentColor;
+    border-width: 2px !important;
+
+    
+    &:disabled {
+      border-color: black;
+    }
+    &.thin-border {
+      border-width: 1px !important;
+    }
+  }
+
+  &.block {
+    width: 100%;
+  }
+
+  &.has-icon {
+    span {
+      display: flex;
+      justify-content: center;
+    }
+    .material-icons {
+      margin-right: 10px;
+      font-size: inherit;
+    }
+  }
+}
+
+
+.el-dialog__headerbtn {
+  top: 25px;
+}

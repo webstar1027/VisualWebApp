@@ -1,0 +1,205 @@
+//height
+$height-lg: 40px;
+$height-md: 40px;
+$height-sm: 30px;
+$height-mn: 20px;
+
+// padding
+$padding-lg: 0 25px;
+$padding-md: 0 15px;
+$padding-sm: 0 10px;
+$padding-mn: 0 15px;
+
+// border-radius
+$border-radius-lg: 5px;
+$border-radius-md: 4px;
+$border-radius-sm: 3px;
+$border-radius-mn: 3px;
+
+//background
+$primary-bg: white;
+
+//button padding
+$btn-height-lg: $height-lg;
+$btn-height-md: $height-md;
+$btn-height-sm: $height-sm;
+$btn-height-mn: $height-mn;
+
+//button border-radius
+$btn-border-radius-lg: $border-radius-lg;
+$btn-border-radius-md: $border-radius-md;
+$btn-border-radius-sm: $border-radius-sm;
+$btn-border-radius-mn: $border-radius-mn;
+
+// button padding
+$btn-padding-lg: $padding-lg;
+$btn-padding-md: $padding-md;
+$btn-padding-sm: $padding-sm;
+$btn-padding-mn: $padding-mn;
+
+// input height
+$input-height-lg: $height-lg;
+$input-height-md: $height-md;
+$input-height-sm: $height-sm;
+$input-height-mn: $height-mn;
+
+// input padding
+$input-padding-lg: $padding-lg;
+$input-padding-md: $padding-md;
+$input-padding-sm: $padding-sm;
+$input-padding-mn: $padding-mn;
+
+//input border-radius
+$input-border-radius-lg: $border-radius-lg;
+$input-border-radius-md: $border-radius-md;
+$input-border-radius-sm: $border-radius-sm;
+$input-border-radius-mn: $border-radius-mn;
+
+
+//OTHER
+$color_1: $color-text-primary;
+$color_2: $color-primary;
+$color_3: $color-text-placeholder;
+$color_4: $color-text-regular;
+$color_5: $color-white;
+$color_6: $color-info;
+$color_7: #999;
+$color_8: #66b1ff;
+$color_9: #bbb;
+$color_10: inherit;
+$color_11: #666;
+$color_12: $border-color-light;
+$color_13: #333;
+$color_14: #ccc;
+$color_15: $color-success;
+$color_16: $color-warning;
+$color_17: $color-danger;
+$color_18: #d3dce6;
+$color_19: transparent;
+$color_20: #8c939d;
+$color_21: $color-black;
+$color_22: tint($color-primary, 20%);
+$color_23: #3a8ee6;
+$color_24: #8cc5ff;
+$color_25: #a4da89;
+$color_26: #f0c78a;
+$color_27: #f9a7a7;
+$color_28: #bcbec2;
+$color_29: #a0cfff;
+$color_30: #f78989;
+$color_31: #fab6b6;
+$color_32: #85ce61;
+$color_33: #b3e19d;
+$color_34: #ebb563;
+$color_35: #f3d19e;
+$color_36: #a6a9ad;
+$color_37: #c8c9cc;
+$font_family_1: element-icons;
+$background_color_1: $color-white;
+$background_color_2: #f4f4f5;
+$background_color_3: $color-primary;
+$background_color_4: $background-color-base;
+$background_color_5: #ecf5ff;
+$background_color_6: $border-color-extra-light;
+$background_color_7: transparent;
+$background_color_8: #f0f2f5;
+$background_color_9: $color-text-placeholder;
+$background_color_10: $color-info;
+$background_color_11: #ebeef5;
+$background_color_12: #e6f1fe;
+$background_color_13: $border-color-light;
+$background_color_14: #f0f7ff;
+$background_color_15: #f0f9eb;
+$background_color_16: $color-success;
+$background_color_17: #fdf6ec;
+$background_color_18: $color-warning;
+$background_color_19: #fef0f0;
+$background_color_20: $color-danger;
+$background_color_21: rgba(255, 255, 255, 0.9);
+$background_color_22: #fbfdff;
+$background_color_23: rgba(32, 159, 255, 0.06);
+$background_color_24: rgba(0, 0, 0, 0.5);
+$background_color_25: rgba(0, 0, 0, 0.72);
+$background_color_26: #edf2fc;
+$background_color_27: rgba(31, 45, 61, 0.11);
+$background_color_28: rgba(31, 45, 61, 0.23);
+$background_color_29: #66b1ff;
+$background_color_30: #a6a9ad;
+$background_color_31: #85ce61;
+$background_color_32: #ebb563;
+$background_color_33: #f78989;
+$background_color_34: red;
+$background_color_35: rgba(255, 255, 255, 0.7);
+$background_color_36: rgba(255, 255, 255, 0.35);
+$background_color_37: #a0cfff;
+$background_color_38: #b3e19d;
+$background_color_39: #f3d19e;
+$background_color_40: #fab6b6;
+$background_color_41: #c8c9cc;
+$background_color_42: $border-color-base;
+$background_color_43: #f2f8fe;
+$background_color_44: rgba(144, 147, 153, 0.3);
+$background_color_45: rgba(144, 147, 153, 0.5);
+$border_color_1: transparent;
+$border_color_2: $color-primary;
+$border_color_3: #ebeef5;
+$border_color_4: $color-text-placeholder;
+$border_color_5: $border-color-light;
+$border_color_6: $color-danger;
+$border_color_7: $color-success;
+$border_color_8: #d1dbe5 transparent;
+$border_color_9: #e1f3d8;
+$border_color_10: #faecd8;
+$border_color_11: #fde2e2;
+$border_color_12: $color-text-primary;
+$border_color_13: inherit;
+$border_color_14: #d9ecff;
+$border_color_15: #e9e9eb;
+$border_color_16: $color-info;
+$border_color_17: $color-warning;
+$border_color_18: #b3d8ff;
+$border_color_19: #d3d4d6;
+$border_color_20: #c2e7b0;
+$border_color_21: #f5dab1;
+$border_color_22: #fbc4c4;
+$border_color_23: #c6e2ff;
+$border_color_24: #3a8ee6;
+$border_color_25: #66b1ff;
+$border_color_26: #a0cfff;
+$border_color_27: #85ce61;
+$border_color_28: #5daf34;
+$border_color_29: #b3e19d;
+$border_color_30: #ebb563;
+$border_color_31: #cf9236;
+$border_color_32: #f3d19e;
+$border_color_33: #f78989;
+$border_color_34: #dd6161;
+$border_color_35: #fab6b6;
+$border_color_36: #a6a9ad;
+$border_color_37: #82848a;
+$border_color_38: #c8c9cc;
+
+$border_color_39: $border-color-base;
+$border_top_color_1: $color-text-placeholder;
+$border_top_color_2: $color-primary;
+$border_top_color_3: $color-text-primary;
+$border_top_color_4: $color-white;
+$border_top_color_5: #ebeef5;
+$border_right_color_1: $border-color-base;
+$border_right_color_2: $color-white;
+$border_right_color_3: $color-text-primary;
+$border_right_color_4: #ebeef5;
+$border_right_color_5: rgba(255, 255, 255, 0.5);
+$border_bottom_color_1: $color-primary;
+$border_bottom_color_2: $color-text-placeholder;
+$border_bottom_color_3: $color-white;
+$border_bottom_color_4: $color-text-primary;
+$border_bottom_color_5: transparent;
+$border_bottom_color_6: #ebeef5;
+$border_left_color_1: $border-color-base;
+$border_left_color_2: $color-white;
+$border_left_color_3: $color-text-primary;
+$border_left_color_4: #ebeef5;
+$border_left_color_5: rgba(255, 255, 255, 0.5);
+$border_left_color_6: $color-primary;
+

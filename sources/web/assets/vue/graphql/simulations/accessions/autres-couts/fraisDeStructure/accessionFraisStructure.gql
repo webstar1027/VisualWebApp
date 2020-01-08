@@ -1,0 +1,19 @@
+query accessionFraisStructures($simulationId: String!, $total: Boolean = false) {
+  accessionFraisStructures(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      number,
+      libelle,
+      indexation,
+      tauxDevolution,
+      type,
+      accessionFraisStructuresPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

@@ -1,0 +1,24 @@
+query accessionProduitCharges($simulationId: String!, $total: Boolean = false) {
+  accessionProduitCharges(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      number,
+      libelle,
+      indexation,
+      tauxDevolution,
+      type,
+      codification {
+        id
+        numero,
+        activite
+      },
+      accessionProduitsChargesPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

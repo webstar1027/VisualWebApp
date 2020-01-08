@@ -1,0 +1,10 @@
+query droits{
+    droits{
+            id,
+            nom,
+            libelle,
+            categorie,
+            dateCreation,
+            dateModification
+    }
+}

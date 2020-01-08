@@ -1,0 +1,46 @@
+.hypotheses {
+  .el-form-item {
+    margin-right: 1em;
+    margin-bottom: 2em;
+    .el-input{
+        &+span{
+            font-size: 13px;
+        }
+    }
+  }
+
+
+  .el-form-item__label {
+    text-align: left !important;
+    line-height: 14px;
+    margin: 10px 0;
+    font-size: 13px;
+
+    ///optional
+    min-height: 28px;
+  }
+
+  .number-input {
+    width: 80px;
+  }
+
+  .year-input {
+    width: 50px;
+  }
+
+  .fixed-input .el-input__inner {
+    padding: 0 3px !important;
+    text-align: right !important;
+  }
+
+  .sub-title {
+    margin: 30px 0;
+    color: #524646;
+  }
+
+  [class*=" el-icon-"],
+  [class^="el-icon-"] {
+    color: #2491eb;
+    font-size: 20px;
+  }
+}

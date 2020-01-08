@@ -1,0 +1,14 @@
+mutation saveAccessionFraisStructure($fraiStructure: AccessionFraiStructureInput!) {
+  saveAccessionFraisStructure(fraiStructure: $fraiStructure) {
+    libelle,
+    indexation,
+    tauxDevolution,
+    type,
+    accessionFraisStructuresPeriodique{
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

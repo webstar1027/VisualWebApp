@@ -1,0 +1,5 @@
+mutation deleteSimulation($simulationId: String!){
+    deleteSimulation(simulationId: $simulationId){
+        id
+    }
+}

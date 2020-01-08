@@ -1,0 +1,24 @@
+query produitAutres($simulationId: String!, $type: Int, $total: Boolean = false){
+  produitAutres(simulationId: $simulationId, type: $type) {
+    items @skip(if: $total) {
+      id,
+      simulation{
+        nom,
+        description
+      },
+      nom,
+      type,
+      montants,
+      tauxEvolution,
+      nature,
+      calculAutomatique,
+      produitsAutresPeriodique {
+      items{
+        iteration,
+        value
+      }
+     }
+    }
+    count @include(if: $total)
+  }
+}

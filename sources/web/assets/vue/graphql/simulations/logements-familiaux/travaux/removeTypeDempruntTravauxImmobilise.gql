@@ -1,0 +1,3 @@
+mutation removeTypeDempruntTravauxImmobilise($typesEmpruntsUUID: String!, $travauxImmobiliseUUID: String!){
+  removeTypeDempruntTravauxImmobilise(typesEmpruntsUUID: $typesEmpruntsUUID, travauxImmobiliseUUID: $travauxImmobiliseUUID)
+}

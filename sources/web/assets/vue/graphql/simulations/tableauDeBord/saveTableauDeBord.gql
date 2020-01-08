@@ -1,0 +1,21 @@
+mutation saveTableauDeBord($tableauDeBord: TableauDeBordInput!){
+    saveTableauDeBord(tableauDeBord: $tableauDeBord){
+        uuid,
+        simulation {
+            id
+        },
+        beginProjection,
+        endProjection,
+        tableauDeBordPeriodique {
+            items{
+                iteration,
+                value,
+                tableauDeBordParam {
+                    composant,
+                    type,
+                    position
+                }
+            }
+        }
+    }
+}

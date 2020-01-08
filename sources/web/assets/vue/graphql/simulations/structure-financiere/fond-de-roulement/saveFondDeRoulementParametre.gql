@@ -1,0 +1,5 @@
+mutation saveFondDeRoulementParametre($fondDeRoulementId: String!, $potentielFinancierTermination: Float,$fondsPropresSurOperation: Float, $depotDeGarantie: Float, $simulationId: String!){
+    saveFondDeRoulementParametre(fondDeRoulementId: $fondDeRoulementId, potentielFinancierTermination: $potentielFinancierTermination,fondsPropresSurOperation: $fondsPropresSurOperation,depotDeGarantie: $depotDeGarantie, simulationId: $simulationId){
+    id
+    }
+}

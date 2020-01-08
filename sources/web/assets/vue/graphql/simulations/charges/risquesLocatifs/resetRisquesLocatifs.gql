@@ -1,0 +1,3 @@
+mutation resetRisqueLocatif($simulationId: String!, $periodique: String!, $type: Int!) {
+  resetRisqueLocatif(simulationId: $simulationId, periodique: $periodique,type: $type)
+}

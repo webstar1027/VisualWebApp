@@ -1,0 +1,3 @@
+mutation removePsla($pslaUUID: String!, $simulationId: String!){
+  removePsla(pslaUUID: $pslaUUID, simulationId: $simulationId)
+}

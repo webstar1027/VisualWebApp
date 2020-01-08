@@ -1,0 +1,3 @@
+query leaveEnsemble($ensembleID: String!) {
+    leaveEnsemble(ensembleID: $ensembleID)
+}

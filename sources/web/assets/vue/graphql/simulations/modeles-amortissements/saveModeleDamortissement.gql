@@ -1,0 +1,28 @@
+mutation saveModeleDamortissement($modeleDamortissement: ModeleDamortissementInput!) {
+  saveModeleDamortissement(modeleDamortissement: $modeleDamortissement) {
+    id,
+    simulation{
+      nom,
+      description
+    }
+    numero,
+    nom,
+    dureeReprise,
+    structureVentilation,
+    menuiserieVentilation,
+    chauffageVentilation,
+    etancheiteVentilation,
+    ravalementVentilation,
+    electriciteVentilation,
+    plomberieVentilation,
+    ascenseursVentilation,
+    structureAmortissement,
+    menuiserieAmortissement,
+    chauffageAmortissement,
+    etancheiteAmortissement,
+    ravalementAmortissement,
+    electriciteAmortissement,
+    plomberieAmortissement,
+    ascenseursAmortissement
+  }
+}

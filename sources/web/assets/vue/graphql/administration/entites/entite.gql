@@ -1,0 +1,39 @@
+query entite($entiteID: String!) {
+    entite(entiteID: $entiteID) {
+        id,
+        nom,
+        siren,
+        type,
+        code,
+        typeOrganisme,
+        codeOrganisme,
+        dateCreation,
+        dateModification
+        creePar {
+            nom,
+            prenom,
+            email
+        },
+        modifiePar {
+            nom,
+            prenom,
+            email
+        },
+        estActivee,
+        utilisateursRolesEntites {
+            items {
+                utilisateur {
+                    id,
+                    nom,
+                    prenom,
+                    email,
+                    telephone
+                },
+                role {
+                    id,
+                    nom
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+query portageTresorerie($simulationID: String!) {
+    portageTresorerie(simulationID: $simulationID){
+    items(limit: 14, offset:0){
+      id,
+      nom,
+      type,
+      estParametre,
+      portageTresoreriePeriodique{
+        items(limit: 50, offset:0){
+          iteration,
+          valeur
+        }
+      }
+    }
+  }
+}

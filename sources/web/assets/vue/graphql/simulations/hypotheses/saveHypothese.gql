@@ -1,0 +1,24 @@
+mutation saveHypothese($hypothese: HypotheseInput!) {
+  saveHypothese(hypothese: $hypothese) {
+    simulation{
+      nom
+    },
+    mobilisation,
+    maintenance,
+    maintenanceDiffere,
+    grosEntretien,
+    grosEntretienDiffere,
+    provisionGros,
+    provisionGrosDiffere,
+    tauxVacance,
+    tauxVacanceGarages,
+    tauxVacanceCommerces,
+    applicationFrais,
+    fraisPersonnel,
+    fraisGestion,
+    seuilDeclenchement,
+    tauxDirecte,
+    tauxVefa,
+    tauxRehabilitation
+  }
+}

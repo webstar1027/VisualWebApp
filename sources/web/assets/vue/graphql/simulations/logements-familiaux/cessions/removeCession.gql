@@ -1,0 +1,3 @@
+mutation removeCession($cessionUUID: String!, $simulationId: String!){
+  removeCession(cessionUUID: $cessionUUID, simulationId: $simulationId)
+}

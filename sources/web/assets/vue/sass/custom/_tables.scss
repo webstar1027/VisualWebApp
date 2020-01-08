@@ -1,0 +1,106 @@
+.el-table {
+  &:not(.fw){
+    //max-width: 1390px;
+  }
+
+  .el-table__header-wrapper {
+    table th {
+      .cell {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .el-table__body-wrapper, .el-table__fixed-body-wrapper {
+    tbody{
+      &:before{
+        content: '';
+        height: 2px;
+        display: block;
+      }
+    }
+  }
+
+  th {
+    background: $light;
+    > .cell {
+      white-space: nowrap;
+      color: black;
+    }
+  }
+
+  td {
+    &.short-w {
+      width: 50px;
+    }
+  }
+
+  th,
+  td {
+    .cell {
+      font-size: 12px;
+      word-break: break-word !important;
+    }
+  }
+
+  .btn-icons {
+    .el-button {
+      .material-icons {
+        font-size: 18px;
+      }
+    }
+
+    &,
+    &-bg {
+      .el-button {
+        &:not(:last-child) {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &-bg {
+      .el-button {
+        $w: 28px;
+        padding: 0;
+        height: $w;
+        line-height: $w;
+        width: $w;
+        flex: 0 0 auto;
+        margin: 2%;
+        .material-icons {
+          font-size: 16px;
+        }
+
+        &.has-notif {
+          position: relative;
+          &:after {
+            $r: 8px;
+            content: "";
+            display: block;
+            width: $r;
+            height: $r;
+            right: -5px;
+            bottom: 3px;
+            background: red;
+            border-radius: 50%;
+            border: 2px solid white;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}
+
+.iet-table {
+  th,
+  td {
+    padding: 0.5rem;
+    .el-input {
+      .el-input__inner {
+        height: 55px;
+      }
+    }
+  }
+}

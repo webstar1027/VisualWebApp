@@ -1,0 +1,3 @@
+mutation removeFraisStructure($fraisStructureId: String!, $simulationId: String!) {
+  removeFraisStructure(fraisStructureId: $fraisStructureId, simulationId: $simulationId)
+}

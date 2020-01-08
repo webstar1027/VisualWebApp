@@ -1,0 +1,25 @@
+mutation saveEntite(
+    $entiteID: String,
+    $nom: String!,
+    $siren: String!,
+    $type: String!,
+    $code: String!,
+    $typeOrganisme: String,
+    $codeOrganisme: String,
+    $estActivee: Boolean!,
+    $referents: [String!]!
+    ){
+        saveEntite (
+            entiteID: $entiteID,
+            nom: $nom,
+            siren: $siren,
+            type: $type,
+            code: $code,
+            typeOrganisme: $typeOrganisme,
+            codeOrganisme: $codeOrganisme,
+            estActivee: $estActivee,
+            referents: $referents
+            ) {
+                id,
+    }
+}

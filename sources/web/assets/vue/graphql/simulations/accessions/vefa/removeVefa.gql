@@ -1,0 +1,3 @@
+mutation removeVefa($vefaId: String!, $simulationId: String!) {
+  removeVefa(vefaId: $vefaId, simulationId: $simulationId)
+}

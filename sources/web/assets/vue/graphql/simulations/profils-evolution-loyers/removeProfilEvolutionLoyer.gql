@@ -1,0 +1,3 @@
+mutation removeProfilEvolutionLoyer($id: String!, $simulationId: String!){
+  removeProfilEvolutionLoyer(id: $id, simulationId: $simulationId)
+}

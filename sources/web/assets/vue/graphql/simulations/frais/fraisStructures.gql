@@ -1,0 +1,19 @@
+query fraisStructures($simulationId: String!, $total: Boolean = false) {
+  fraisStructures(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      number,
+      libelle,
+      indexation,
+      tauxDevolution,
+      type,
+      fraisStructuresPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

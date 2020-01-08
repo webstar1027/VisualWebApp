@@ -1,0 +1,9 @@
+mutation saveCcmi($ccmi: CcmiInput!) {
+  saveCcmi(ccmi: $ccmi) {
+    simulation{
+      nom
+    },
+    id,
+    numero
+  }
+}

@@ -1,0 +1,14 @@
+query accessionCodifications($simulationId: String!, $total: Boolean = false) {
+  accessionCodifications(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      numero,
+      activite,
+      simulation {
+        id,
+        nom
+      }
+    }
+    count @include(if: $total)
+  }
+}

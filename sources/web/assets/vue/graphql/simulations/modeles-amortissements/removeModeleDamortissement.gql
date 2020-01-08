@@ -1,0 +1,3 @@
+mutation removeModeleDamortissement($modeleDamortissementUUID: String!, $simulationId: String!){
+  removeModeleDamortissement(modeleDamortissementUUID: $modeleDamortissementUUID, simulationId: $simulationId)
+}

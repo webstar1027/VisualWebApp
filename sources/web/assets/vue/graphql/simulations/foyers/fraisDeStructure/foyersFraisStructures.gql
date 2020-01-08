@@ -1,0 +1,19 @@
+query foyersFraisStructures($simulationId: String!, $total: Boolean = false) {
+  foyersFraisStructures(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      number,
+      libelle,
+      indexation,
+      tauxDevolution,
+      type,
+      foyersFraisStructuresPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

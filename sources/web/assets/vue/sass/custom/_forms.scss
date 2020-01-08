@@ -1,0 +1,256 @@
+.el-input,
+.el-input-number,
+.el-select {
+  &.block {
+    border: 1px;
+  }
+  //Uncomment the line below if you need to see the old design of inputs
+  //border: 1px solid lightgray;
+
+  &.short {
+    width: 70px;
+  }
+
+  &__inner {
+    font-family: inherit;
+    font-size: 12px;
+  }
+
+  &.is-disabled .el-input__inner,
+  .el-input_inner:disabled {
+    background: #dee2e6;
+  }
+}
+
+.form-label,
+.el-form-item__label {
+  font-weight: 500;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: unset;
+  color: black;
+}
+
+.form-label {
+  display: block;
+}
+
+.form-fieldset {
+  border: 1px solid #e4e7ed;
+  .ff-header {
+    h5.ff-title {
+      font-weight: 400;
+    }
+  }
+}
+
+/*
+.el-input,
+.el-select {
+  &.shadowy {
+    .el-input__inner {
+      // box-shadow: 0 0 25px rgba(black, 0.01);
+    }
+  }
+}
+*/
+.el-input.block,
+.el-select.block .el-input {
+  max-width: unset;
+}
+
+.el-autocomplete {
+  &.outline {
+    .el-input__inner {
+      border: 1px solid #dee2e6;
+    }
+  }
+  &.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+  }
+}
+
+.el-autocomplete-suggestion {
+  &.active {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+    &.el-popper[x-placement^="bottom"] {
+      margin-top: -1px;
+    }
+
+    ul.el-autocomplete-suggestion__list {
+      margin: 0 10px;
+      border-top: 1px dashed #eee;
+    }
+  }
+}
+
+.search-list-tag {
+  .slt-autocomplete {
+    li {
+      line-height: normal;
+      padding: 7px;
+      .link {
+        font-size: 12px;
+        color: #b4b4b4;
+      }
+    }
+  }
+
+  .selected-items {
+    @include hide;
+    border: 1px solid #dee2e6;
+    border-top: none;
+    background: white;
+    border-radius: 0 0 4px 4px;
+    padding: 0 6px;
+
+    .divider {
+      border-top: 1px dashed #dee2e6;
+      content: "";
+      margin: 6px;
+    }
+  }
+
+  &.active {
+    .el-autocomplete {
+      .el-input .el-input__inner {
+        border-bottom: none !important;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .selected-items {
+      @include show;
+    }
+  }
+}
+
+.el-input__inner {
+  @include placeholder {
+    color: black !important;
+  }
+  border: 1px solid $border-color-base;
+}
+
+.el-switch {
+  &,
+  &.is-checked {
+    .el-switch__core {
+      background-color: transparent !important;
+      /*
+      &:after {
+        // background-color:  !important;
+      }
+      */
+    }
+  }
+  .el-switch__core {
+    border-width: 2px;
+    height: 24px;
+    width: 44px !important;
+    border-radius: 12px;
+    color: #dcdfe6;
+    &:after {
+      $r: 18px;
+      left: 2px;
+      content: "OFF";
+      font-size: 8px;
+      line-height: $r;
+      height: $r;
+      width: $r;
+      text-align: center;
+      font-weight: 600;
+      color: white !important;
+      background-color: #dcdfe6 !important;
+    }
+  }
+  &.is-checked {
+    .el-switch__core {
+      color: $primary;
+      &:after {
+        content: "ON";
+        background-color: $primary !important;
+        margin-left: -20px;
+      }
+    }
+  }
+}
+
+// Overloading the default behaviour of inputs green borders when success
+.el-form-item.is-success {
+  .el-input__inner {
+    border-color: $border-color-base;
+    &:focus {
+      border-color: $border-color-base;
+    }
+  }
+  .el-textarea__inner {
+    border-color: $border-color-base;
+    &:focus {
+      border-color: $border-color-base;
+    }
+  }
+  .el-input-group__append {
+    .el-input__inner {
+      border-color: $border-color-base;
+    }
+  }
+  .el-input-group__prepend {
+    .el-input__inner {
+      border-color: $border-color-base;
+    }
+  }
+  .el-input__validateIcon {
+    color: $border-color-base;
+  }
+}
+
+.el-form {
+  & {
+    .el-form-item {
+      display: flex;
+      flex-direction: column;
+      .el-form-item__label-wrap{
+        margin-left: 0 !important;
+      }
+      label.el-form-item__label {
+        width: auto !important;
+        text-align: left;
+      }
+      .el-form-item__content {
+        margin: 0 !important;
+        .el-input,
+        .el-select {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.hypotheses .el-form .el-form-item,
+.el-form-item.custom-append-input {
+  .el-form-item__content {
+    .el-input-group {
+      &.el-input-group--append {
+        &.el-input {
+          background: transparent;
+        }
+        .el-input__inner {
+          border-radius: 4px !important;
+          background: white;
+        }
+      }
+      .el-input-group__append {
+        padding: 0 5px;
+        border-radius: 0;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+}

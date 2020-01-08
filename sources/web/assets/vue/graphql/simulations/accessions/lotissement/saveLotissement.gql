@@ -1,0 +1,17 @@
+mutation saveLotissement($lotissement: LotissementInput!) {
+  saveLotissement(lotissement: $lotissement) {
+    simulation{
+      nom
+    },
+    id,
+    numero,
+    nom,
+    prixVente,
+    nombreLots,
+    prixVenteLot,
+    tauxBrute,
+    tauxEvolution,
+    dureeConstruction,
+    type
+  }
+}

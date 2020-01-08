@@ -1,0 +1,5 @@
+mutation saveRole($roleID: String, $nom: String!, $description: String, $droits: [String!]!){
+    saveRole (roleID: $roleID, nom: $nom, description: $description, droits: $droits) {
+        id
+    }
+}

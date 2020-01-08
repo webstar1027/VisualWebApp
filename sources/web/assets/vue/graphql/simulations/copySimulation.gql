@@ -1,0 +1,19 @@
+mutation copySimulation($id: String!, $nom: String!){
+    copySimulation(id: $id, nom: $nom){
+        id,
+        nom,
+        entite{
+            id,
+            nom,
+            code
+        },
+        anneeDeReference,
+        dateModification,
+        modifiePar{
+            nom,
+            prenom
+        },
+        incrementation,
+        description
+    }
+}

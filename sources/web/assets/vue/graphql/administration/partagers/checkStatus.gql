@@ -1,0 +1,3 @@
+query checkStatus($simulationID: String!){
+	checkStatus(simulationID: $simulationID)
+}

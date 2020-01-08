@@ -1,0 +1,23 @@
+query invitationEnsembles($limit: Int!, $offset: Int!, $ensembleID: String!) {
+  invitationEnsembles(ensembleID: $ensembleID) {
+    items(limit: $limit, offset: $offset) {
+      ensemble{
+        id,
+        nom
+      }
+      entite{
+        id,
+        nom,
+        type,
+        typeOrganisme,
+        code,
+        siren,
+        ensemblesByReferentsEnsembles{
+          id
+        }
+      },
+      statut
+    },
+    count
+  }
+}

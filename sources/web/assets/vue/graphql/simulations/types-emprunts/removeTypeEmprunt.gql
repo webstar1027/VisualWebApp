@@ -1,0 +1,3 @@
+mutation removeTypeEmprunt($id: String!, $simulationId: String!){
+  removeTypeEmprunt(id: $id, simulationId: $simulationId)
+}

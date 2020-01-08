@@ -1,0 +1,6 @@
+mutation removeTypeDempruntOperation($typesEmpruntsUUID: String!, $operationUUID: String!){
+  removeTypeDempruntOperation(
+    typesEmpruntsUUID: $typesEmpruntsUUID,
+    operationUUID: $operationUUID
+  )
+}

@@ -1,0 +1,11 @@
+query roles($limit: Int!, $offset: Int!, $nom: String, $description: String, $droits: [String!], $sortColumn: String!, $sortOrder: String!) {
+    roles(nom: $nom, description: $description, droits: $droits, sortColumn: $sortColumn, sortOrder: $sortOrder) {
+        items(limit: $limit, offset: $offset) {
+            id,
+            nom,
+            description,
+            estVisible
+     }
+        count
+    }
+}

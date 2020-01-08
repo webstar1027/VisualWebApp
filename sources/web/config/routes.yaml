@@ -1,0 +1,5 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+graphqlite_bundle:
+  resource: '@GraphqliteBundle/Resources/config/routes.xml'

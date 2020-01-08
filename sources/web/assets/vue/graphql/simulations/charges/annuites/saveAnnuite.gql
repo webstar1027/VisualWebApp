@@ -1,0 +1,21 @@
+mutation saveAnnuite($annuite: AnnuiteInput!) {
+  saveAnnuite(annuite: $annuite) {
+    id,
+    simulation{
+      nom,
+      description
+    }
+    numero,
+    capitalRestantPatrimoine,
+    priseIcneAcne,
+    libelle,
+    nature,
+		type,
+    annuitePeriodique {
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

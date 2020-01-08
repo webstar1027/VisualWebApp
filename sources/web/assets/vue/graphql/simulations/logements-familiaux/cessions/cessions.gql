@@ -1,0 +1,42 @@
+query cessions($simulationId: String!, $total: Boolean = false){
+  cessions(simulationId: $simulationId) {
+    items {
+      id,
+      simulation{
+        nom
+      },
+      nGroupe,
+      nSousGroupe,
+      informations,
+      nomGroupe,
+      nature,
+      indexerInflation,
+      reductionTfpb,
+      reductionGe,
+   		reductionMaintenance,
+      cessionFinMois,
+      reductionAmortissementAnnuelle,
+      reductionRepriseAnnuelle,
+      dureeResiduelle,
+      numero,
+      nomCategory,
+      loyerMensuel,
+      nombreResiduelle,
+      valeurComptable,
+      type,
+      cessionPeriodique{
+        items{
+          iteration,
+          moisCession,
+          nombreLogements,
+          prixNetsCession,
+          remboursementAnticipe,
+          ecomoniesCapital,
+          ecomoniesInterets,
+          valeurCede
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

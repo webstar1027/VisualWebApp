@@ -1,0 +1,3 @@
+mutation removeSimulationNote($id: String!, $simulationId: String!) {
+  removeSimulationNote(id: $id, simulationId: $simulationId)
+}

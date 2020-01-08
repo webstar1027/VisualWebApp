@@ -1,0 +1,5 @@
+mutation saveCgllsAncolsParametres($cgllsAncolsParametresID: String!, $calculAutomatique: Int, $lissageNet: Float, $simulationID: String!){
+    saveCgllsAncolsParametres(cgllsAncolsParametresID: $cgllsAncolsParametresID, calculAutomatique: $calculAutomatique, lissageNet: $lissageNet, simulationID: $simulationID){
+        id
+    }
+}

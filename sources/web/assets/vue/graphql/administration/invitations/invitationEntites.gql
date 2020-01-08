@@ -1,0 +1,22 @@
+query invitationEntites($limit: Int!, $offset: Int!, $entiteID: String!) {
+  invitationEntites(entiteID: $entiteID) {
+    items(limit: $limit, offset: $offset) {
+      entite{
+        id,
+        nom
+      }
+      utilisateur{
+        id,
+        nom,
+        prenom,
+        email,
+        telephone,
+        entitesByReferentsEntites{
+          id
+        }
+      },
+      statut
+    },
+    count
+  }
+}

@@ -1,0 +1,15 @@
+mutation saveAutreCharge($autreCharge: AutreChargeInput!) {
+  saveAutreCharge(autreCharge: $autreCharge) {
+    numero,
+    libelle,
+    indexation,
+    tauxDevolution,
+    nature,
+    autresChargesPeriodique{
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

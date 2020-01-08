@@ -1,0 +1,5 @@
+mutation activateRole($roleID: String!){
+    activateRole (roleID: $roleID) {
+        id
+    }
+}

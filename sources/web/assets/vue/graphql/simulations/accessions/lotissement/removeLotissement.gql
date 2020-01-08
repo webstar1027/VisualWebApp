@@ -1,0 +1,3 @@
+mutation removeLotissement($lotissementUUID: String!, $simulationId: String!) {
+  removeLotissement(lotissementUUID: $lotissementUUID, simulationId: $simulationId)
+}

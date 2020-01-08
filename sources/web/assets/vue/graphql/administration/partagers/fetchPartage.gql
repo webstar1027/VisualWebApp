@@ -1,0 +1,29 @@
+query fetchPartage($limit: Int!, $offset: Int!, $simulationID: String!){
+	fetchPartage(simulationID: $simulationID){
+		items(limit: $limit, offset: $offset) {
+			id,
+			partageType,
+			dateCreation,
+			utilisateur {
+				id,
+				nom,
+				prenom,
+				email
+			},
+			entite {
+				id,
+				nom
+			},
+			owner {
+				id,
+				nom
+			},
+			ownerUtilisateur {
+				id,
+				nom,
+				email
+			}
+		}
+		count
+	}
+}

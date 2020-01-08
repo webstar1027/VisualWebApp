@@ -1,0 +1,6 @@
+mutation updateSimulationLock($simulationId: String!, $locked: Boolean!){
+    updateSimulationLock(simulationId: $simulationId, locked: $locked){
+        id,
+        nom,
+    }
+}

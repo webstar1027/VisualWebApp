@@ -1,0 +1,23 @@
+mutation saveCessionFoyer($cessionFoyer: CessionFoyerInput!) {
+  saveCessionFoyer(cessionFoyer: $cessionFoyer) {
+    simulation{
+      nom
+    },
+    id,
+    nGroupe,
+    nomIntervention,
+    nature,
+    indexerInflation,
+    nombreLogements,
+    dateCession,
+    prixNetCession,
+    valeurNetteComptable,
+    remboursementAnticipe,
+    tauxEvolutionTfpb,
+    tauxEvolutionMaintenance,
+    tauxEvolutionGrosEntretien,
+    reductionAmortissementAnnuelle,
+    reductionRepriseAnnuelle,
+    dureeResiduelle,
+  }
+}

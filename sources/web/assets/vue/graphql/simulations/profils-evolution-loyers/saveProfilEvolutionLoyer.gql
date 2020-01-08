@@ -1,0 +1,17 @@
+mutation saveProfilEvolutionLoyer($profilEvolutionLoyer: ProfilEvolutionLoyerInput!) {
+  saveProfilEvolutionLoyer(profilEvolutionLoyer: $profilEvolutionLoyer) {
+    simulation{
+      nom
+    },
+	id,
+	numero,
+    nom,
+    appliquerIrl,
+    profilsEvolutionLoyersPeriodique{
+      items{
+        s1,
+        s2
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation deleteInvitationEnsemble ($ensembleID: String!, $entiteID: String!) {
+    deleteInvitationEnsemble (ensembleID: $ensembleID, entiteID: $entiteID) {
+        statut
+    }
+}

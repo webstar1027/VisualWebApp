@@ -1,0 +1,5 @@
+mutation saveInvitationEntite($entiteID: String!, $utilisateurs: [String!]!) {
+    saveInvitationEntite (entiteID: $entiteID, utilisateurs: $utilisateurs) {
+        id
+    }
+}

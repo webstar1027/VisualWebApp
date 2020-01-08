@@ -1,0 +1,5 @@
+mutation deleteInvitationEntite ($entiteID: String!, $utilisateurID: String!) {
+    deleteInvitationEntite (entiteID: $entiteID, utilisateurID: $utilisateurID) {
+        statut
+    }
+}

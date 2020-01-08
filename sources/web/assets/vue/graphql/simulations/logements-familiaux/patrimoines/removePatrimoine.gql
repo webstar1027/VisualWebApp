@@ -1,0 +1,3 @@
+mutation removePatrimoine($patrimoineUUID: String!, $simulationId: String!){
+  removePatrimoine(patrimoineUUID: $patrimoineUUID, simulationId: $simulationId)
+}

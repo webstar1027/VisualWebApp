@@ -1,0 +1,33 @@
+query utilisateur($utilisateurID: String!) {
+    utilisateur(utilisateurID: $utilisateurID) {
+        id,
+        nom,
+        prenom,
+        email,
+        fonction,
+        telephone,
+        dateCreation,
+        dateModification,
+        creePar {
+            nom,
+            prenom
+        },
+        modifiePar {
+            nom,
+            prenom
+        },
+        estActive,
+    		utilisateursRolesEntites{
+          items{
+            role{
+              id,
+              nom
+            },
+            entite{
+              id,
+              nom
+            }
+          }
+        }
+    }
+}

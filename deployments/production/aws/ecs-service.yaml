@@ -1,0 +1,224 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Deploy a service on AWS Fargate hosted in a private subnet behind a public load balancer
+
+Parameters:
+  VPCStackName:
+    Description: The name of the parent networking stack in order to locate and reference resources created by that stack
+    Type: String
+
+  ECSClusterStackName:
+    Description: The name of the parent AWS Fargate cluster stack in order to locate and reference resources created by that stack
+    Type: String
+
+  AuroraStackName:
+    Description: The name of the AWS RDS Aurora stack in order to locate and reference resources created by that stack
+    Type: String
+
+  ServiceName:
+    Description: The service name
+    Type: String
+    Default: visial-web-service
+
+  DockerImage:
+    Description: The Docker image containing the application
+    Type: String
+
+  ContainerPort:
+    Description: The port number on which the application inside the Docker container is listening
+    Type: Number
+    Default: 80
+  
+  ContainerLogRetentionInDays:
+    Description: Number of days to retain the container logs in cloudwatch.
+    Type: Number
+    AllowedValues: [1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, 3653]
+    Default: 30
+    ConstraintDescription: "Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
+
+  ContainerCpu:
+    Description: How much CPU to give the Docker container (1024 is 1 CPU)
+    Type: Number
+    Default: 256
+
+  ContainerMemory:
+    Description: How much memory in MB to give the Docker container
+    Type: Number
+    Default: 512
+
+  DatabaseName:
+    Description: Name of the database
+    Type: String
+
+  DatabaseUser:
+    Description: Username of the database user
+    Type: String
+
+  DatabasePassword:
+    Description: Password of the database user
+    Type: String
+
+  EnvPHPIniMemoryLimit:
+    Description: Value of PHP_INI_MEMORY_LIMIT environment variable
+    Type: String
+    Default: "512M"
+
+  EnvMailSender:
+    Description: Value of MAIL_SENDER environment variable
+    Type: String
+
+  EnvMailerURL:
+    Description: Value of MAILER_URL environment variable
+    Type: String
+
+  EnvStartupCommand1:
+    Description: Value of STARTUP_COMMAND_1 environment variable
+    Type: String
+    Default: "php bin/console doctrine:migrations:migrate -n"
+
+  Path:
+    Description: A path on the public load balancer that this service should be connected to, where * will send all load balancer traffic to this service
+    Type: String
+    Default: "*"
+
+  Priority:
+    Description: The priority for the routing rule added to the load balancer (only applies if your have multiple services which have been assigned to different paths on the load balancer)
+    Type: Number
+    Default: 1
+
+  DesiredCount:
+    Description: How many replicas
+    Type: Number
+    Default: 2
+
+  Role:
+    Description: (Optional) An IAM role to give the service's containers if the code within needs to access other AWS resources like S3 buckets, DynamoDB tables, etc
+    Type: String
+    Default: ""
+
+Conditions:
+  HasCustomRole: !Not [ !Equals [!Ref 'Role', ''] ]
+
+Resources:
+  # The task definition. This is a simple metadata description of what
+  # container to run, and what resource requirements it has.
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    DependsOn: ContainerLogGroup
+    Properties:
+      Family: !Ref 'ServiceName'
+      Cpu: !Ref 'ContainerCpu'
+      Memory: !Ref 'ContainerMemory'
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      ExecutionRoleArn:
+        Fn::ImportValue:
+          !Join [':', [!Ref 'ECSClusterStackName', 'ECSTaskExecutionRole']]
+      TaskRoleArn:
+        Fn::If:
+          - 'HasCustomRole'
+          - !Ref 'Role'
+          - !Ref "AWS::NoValue"
+      ContainerDefinitions:
+        - Name: !Ref 'ServiceName'
+          Cpu: !Ref 'ContainerCpu'
+          Memory: !Ref 'ContainerMemory'
+          Image: !Ref 'DockerImage'
+          PortMappings:
+            - ContainerPort: !Ref 'ContainerPort'
+          LogConfiguration:
+            LogDriver: "awslogs"
+            Options:
+              awslogs-group: !Ref ContainerLogGroup
+              awslogs-region: !Ref "AWS::Region"
+              awslogs-stream-prefix: "logs"
+          Environment:
+            - Name: PHP_INI_MEMORY_LIMIT
+              Value: !Ref EnvPHPIniMemoryLimit
+            - Name: STARTUP_COMMAND_1
+              Value: !Ref EnvStartupCommand1
+            - Name: MAIL_SENDER
+              Value: !Ref EnvMailSender
+            - Name: MAILER_URL
+              Value: !Ref EnvMailerURL
+            - Name: DATABASE_URL              
+              Value:
+                !Sub
+                - mysql://${DatabaseUser}:${DatabasePassword}@${DatabaseURL}:3306/${DatabaseName}
+                - DatabaseURL:
+                    Fn::ImportValue:
+                      !Join [':', [!Ref 'AuroraStackName', 'DatabaseURL']]
+
+  ContainerLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      RetentionInDays: !Ref ContainerLogRetentionInDays      
+
+  # The service. The service is a resource which allows you to run multiple
+  # copies of a type of task, and gather up their logs and metrics, as well
+  # as monitor the number of running tasks and replace any that have crashed
+  Service:
+    Type: AWS::ECS::Service
+    DependsOn: LoadBalancerRule
+    Properties:
+      ServiceName: !Ref 'ServiceName'
+      Cluster:
+        Fn::ImportValue:
+          !Join [':', [!Ref 'ECSClusterStackName', 'ClusterName']]
+      LaunchType: FARGATE
+      DeploymentConfiguration:
+        MaximumPercent: 200
+        MinimumHealthyPercent: 75
+      DesiredCount: !Ref 'DesiredCount'
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          SecurityGroups:
+            - Fn::ImportValue:
+                !Join [':', [!Ref 'ECSClusterStackName', 'FargateContainerSecurityGroup']]
+          Subnets:
+            Fn::Split: 
+              - ","
+              - Fn::ImportValue: 
+                  !Sub "${VPCStackName}:PrivateSubnets"                  
+      TaskDefinition: !Ref 'TaskDefinition'
+      LoadBalancers:
+        - ContainerName: !Ref 'ServiceName'
+          ContainerPort: !Ref 'ContainerPort'
+          TargetGroupArn: !Ref 'TargetGroup'
+
+  # A target group. This is used for keeping track of all the tasks, and
+  # what IP addresses / port numbers they have. You can query it yourself,
+  # to use the addresses yourself, but most often this target group is just
+  # connected to an application load balancer, or network load balancer, so
+  # it can automatically distribute traffic across all the targets.
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 30
+      HealthCheckPath: /
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 10
+      HealthyThresholdCount: 3
+      TargetType: ip
+      Name: !Ref 'ServiceName'
+      Port: !Ref 'ContainerPort'
+      Protocol: HTTP
+      UnhealthyThresholdCount: 3
+      VpcId:
+        Fn::ImportValue:
+          !Join [':', [!Ref 'VPCStackName', 'VPC']]
+
+  # Create a rule on the load balancer for routing traffic to the target group
+  LoadBalancerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+        - TargetGroupArn: !Ref 'TargetGroup'
+          Type: 'forward'
+      Conditions:
+        - Field: path-pattern
+          Values: [!Ref 'Path']
+      ListenerArn:
+        Fn::ImportValue:
+          !Join [':', [!Ref 'ECSClusterStackName', 'PublicListener']]
+      Priority: !Ref 'Priority'

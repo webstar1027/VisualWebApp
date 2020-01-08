@@ -1,0 +1,18 @@
+query vacance($simulationID: String!, $total: Boolean = false) {
+  vacance(simulationID: $simulationID) {
+    items @skip(if: $total){
+      id,
+      numeroGroupe,
+      numeroSousGroupe,
+      nomGroupe,
+      information,
+      vacancePeriodique{
+        items{
+          iteration,
+          montant
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

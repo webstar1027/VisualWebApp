@@ -1,0 +1,9 @@
+query cgllsAncolsParametres($simulationID: String!) {
+    cgllsAncolsParametres(simulationID: $simulationID) {
+    items{
+      id,
+      calculAutomatique,
+      lissageNet
+    }
+  }
+}

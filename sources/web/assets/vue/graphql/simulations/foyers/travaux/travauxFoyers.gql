@@ -1,0 +1,48 @@
+query travauxFoyers($simulationId: String!, $total: Boolean = false){
+  travauxFoyers(simulationId: $simulationId){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nomIntervention,
+      nombreLogements,
+      anneeAgrement,
+      dateAcquisition,
+      dateTravaux,
+      indexationIcc,
+      prixRevient,
+      fondsPropres,
+      subventionsEtat,
+      subventionsAnru,
+      subventionsEpci,
+      subventionsDepartement,
+      subventionsRegion,
+      subventionsCollecteur,
+      autresSubventions,
+      totalEmprunt,
+      modeleDamortissement {
+        id,
+        nom
+      },
+      typeEmpruntTravauxFoyer{
+        items{
+          montant,
+          datePremiere,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      periodique: travauxFoyerPeriodique{
+        items{
+          iteration,
+          revedance
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

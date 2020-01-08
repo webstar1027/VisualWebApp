@@ -1,0 +1,3 @@
+mutation removeFondDeRoulement($fondDeRoulementID: String!, $simulationId: String!){
+  removeFondDeRoulement(fondDeRoulementID: $fondDeRoulementID, simulationId: $simulationId)
+}

@@ -1,0 +1,16 @@
+query cgllsAncols($simulationID: String!, $total: Boolean = false){
+    cgllsAncols(simulationID: $simulationID){
+        count
+        items(limit: 12, offset:0) @skip(if: $total){
+            id,
+    	    type,
+          cgllsAncolsPeriodique{
+            count,
+            items(limit:50, offset:0){
+              iteration,
+              valeur
+            }
+          }
+        }
+    }
+}

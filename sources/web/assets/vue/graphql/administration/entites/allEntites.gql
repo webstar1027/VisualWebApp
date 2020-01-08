@@ -1,0 +1,7 @@
+query allEntites{
+  allEntites{
+    id,
+    nom,
+    estActivee
+  }
+}

@@ -1,0 +1,16 @@
+mutation saveResultatComptable($resultatComptable: ResultatComptableInput!) {
+  saveResultatComptable(resultatComptable: $resultatComptable) {
+    id,
+    simulation{
+      nom,
+      description
+    }
+    libelle,
+    resultatComptablePeriodique {
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+
+  traefik:
+    image: traefik:1.7
+    command: --docker --docker.exposedbydefault=false
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  web:
+    image: thecodingmachine/php:7.3-v2-apache-node10
+    labels:
+      - traefik.enable=true
+      - traefik.backend=backend
+      - traefik.frontend.rule=Host:visial-web.localhost
+    environment:
+      # Docker image.
+      APACHE_DOCUMENT_ROOT: public
+      PHP_INI_MEMORY_LIMIT: 1G
+      PHP_INI_MAX_EXECUTION_TIME: 600
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_EXTENSION_WEAKREF: 1
+      PHP_EXTENSION_GD: 1
+      STARTUP_COMMAND_1: composer install
+      STARTUP_COMMAND_2: yarn install
+      # Symfony
+      APP_ENV: dev
+      APP_SECRET: 5ce82bdcb26f31954210b728ccc334d6
+      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE} # mysql://db_user:db_password@127.0.0.1:3306/db_name
+      MAIL_SENDER: ${MAIL_SENDER}
+      MAILER_URL: ${MAILER_URL}
+    volumes:
+      - ./sources/web:/var/www/html:rw
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./deployments/local/docker-compose/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf:ro
+
+  # For unit tests
+  mysql_tests:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: visialweb
+      MYSQL_USER: visialweb
+      MYSQL_PASSWORD: secret
+    volumes:
+      - ./deployments/local/docker-compose/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf:ro
+    tmpfs:
+      - /var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.8
+    labels:
+      - traefik.enable=true
+      - traefik.backend=phpmyadmin
+      - traefik.frontend.rule=Host:phpmyadmin.visial-web.localhost
+    environment:
+      PMA_HOST: mysql
+
+volumes:
+
+  mysql_data:
+    driver: local

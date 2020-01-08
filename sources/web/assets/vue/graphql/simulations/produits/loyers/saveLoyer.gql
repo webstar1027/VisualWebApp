@@ -1,0 +1,22 @@
+mutation saveLoyer($loyer: LoyerInput!) {
+  saveLoyer(loyer: $loyer) {
+    id,
+    simulation{
+      nom,
+      description
+    },
+    nom,
+    tauxDevolution,
+    nombreLogements,
+    montantRls,
+    type,
+    deletable,
+		type,
+    loyerPeriodique {
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

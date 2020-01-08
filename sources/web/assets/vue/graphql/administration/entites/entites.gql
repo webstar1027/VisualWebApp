@@ -1,0 +1,27 @@
+query entites($limit: Int!, $offset: Int!, $nom: String, $siren: String, $type: String, $code: String, $typeOrganisme: String, $codeOrganisme: String, $creePar: String, $modifiePar: String, $utilisateur: String, $referent: String, $ensemble: String, $sortColumn: String!, $sortOrder: String!) {
+  entites(nom: $nom, siren: $siren, type: $type, code: $code, typeOrganisme: $typeOrganisme, codeOrganisme: $codeOrganisme, creePar: $creePar, modifiePar: $modifiePar, utilisateur: $utilisateur, referent: $referent, ensemble: $ensemble, sortColumn: $sortColumn, sortOrder: $sortOrder) {
+    items(limit: $limit, offset: $offset) {
+      id
+      nom
+      siren
+      type
+      code
+      typeOrganisme
+      codeOrganisme
+      creePar {
+        nom
+        prenom
+        email
+      }
+      dateCreation
+      modifiePar {
+        nom
+        prenom
+        email
+      }
+      estActivee
+      dateModification
+    }
+    count
+  }
+}

@@ -1,0 +1,5 @@
+mutation deletePartage ($id: String!) {
+	deletePartage (id: $id) {
+		partageType
+	}
+}

@@ -1,0 +1,5 @@
+mutation readNotification ($notificationID: String!) {
+    readNotification (notificationID: $notificationID) {
+        statut
+    }
+}

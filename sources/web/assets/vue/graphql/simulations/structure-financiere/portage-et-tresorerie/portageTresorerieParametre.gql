@@ -1,0 +1,12 @@
+query portageTresorerieParametre($simulationID: String!) {
+    portageTresorerieParametre(simulationID: $simulationID){
+    items {
+      id,
+      soldeEmplois,
+      detteFournisseurs,
+      promotionAccession,
+      tauxInteretFinancement,
+      tauxInteretConcours
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation resendInvitationEntite($entiteID: String!, $utilisateurID: String!) {
+    resendInvitationEntite (entiteID: $entiteID, utilisateurID: $utilisateurID) {
+        statut
+    }
+}

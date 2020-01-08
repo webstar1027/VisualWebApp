@@ -1,0 +1,15 @@
+query notificationEnsembles {
+  notificationEnsembles {
+    items {
+      ensemble{
+        id,
+        nom
+      }
+      entite{
+        id,
+        nom
+      },
+      statut
+    }
+  }
+}

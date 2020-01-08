@@ -1,0 +1,16 @@
+mutation savePatrimoine($patrimoine: PatrimoineFoyerInput!) {
+  savePatrimoineFoyer(patrimoineFoyer: $patrimoine) {
+    simulation{
+      nom
+    },
+    id,
+    nGroupe,
+    nSousGroupe,
+    nomGroupe,
+    informations,
+    nombreLogements,
+    secteurFinancier,
+    natureOperation,
+    tauxEvolutionRedevances,
+  }
+}

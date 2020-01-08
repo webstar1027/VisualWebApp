@@ -1,0 +1,10 @@
+query fondDeRoulementParametre($simulationId: String!) {
+  fondDeRoulementParametre(simulationId: $simulationId) {
+    items{
+      id,
+      potentielFinancierTermination,
+      fondsPropresSurOperation,
+      depotDeGarantie
+    }
+  }
+}

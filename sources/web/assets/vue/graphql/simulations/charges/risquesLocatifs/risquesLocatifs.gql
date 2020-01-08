@@ -1,0 +1,13 @@
+query risquesLocatifs($simulationId: String!, $total: Boolean = false){
+  risquesLocatifs(simulationId: $simulationId) {
+    items @skip(if: $total){
+      iteration,
+      acne,
+      tauxVacancePatrimoine,
+      tauxVacanceGarages,
+      tauxVacanceCommerciaux,
+      tauxAnnuel
+    }
+    count @include(if: $total)
+  }
+}

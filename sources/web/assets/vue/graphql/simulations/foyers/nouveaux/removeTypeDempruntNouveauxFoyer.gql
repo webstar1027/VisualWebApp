@@ -1,0 +1,6 @@
+mutation removeTypeDempruntNouveauxFoyer($typesEmpruntsUUID: String!, $nouveauxFoyerUUID: String!) {
+  removeTypeDempruntNouveauxFoyer(
+    typesEmpruntsUUID: $typesEmpruntsUUID,
+    nouveauxFoyerUUID: $nouveauxFoyerUUID
+  )
+}

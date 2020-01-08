@@ -1,0 +1,59 @@
+query nouveauxFoyers($simulationId: String!, $total: Boolean = false){
+  nouveauxFoyers(simulationId: $simulationId){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nomIntervention,
+      nature,
+      nombreLogements,
+      anneeAgrement,
+      dateAcquisition,
+      dateTravaux,
+      indexationIcc,
+      prixRevient,
+      fondsPropres,
+      subventionsEtat,
+      subventionsAnru,
+      subventionsEpci,
+      subventionsDepartement,
+      subventionsRegion,
+      subventionsCollecteur,
+      autresSubventions,
+      redevancesTauxEvolution
+      tfpbTauxEvolution,
+      maintenanceTauxEvolution,
+      grosTauxEvolution,
+      coutFoncier,
+      totalEmprunt,
+      modeleDamortissement {
+        id,
+        nom
+      },
+      typeEmpruntNouveauxFoyer{
+        items{
+          montant,
+          datePremiere,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      periodique: nouveauxFoyerPeriodique{
+        items{
+          iteration,
+          complementsCapital,
+          complementsInteret,
+          tfpb,
+          maintenanceCourante,
+          grosEntretien,
+          redevances,
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

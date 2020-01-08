@@ -1,0 +1,21 @@
+query tableauDeBord ($simulationId: String!){
+  tableauDeBord(simulationId: $simulationId) {
+    uuid,
+    simulation {
+      id
+    },
+    beginProjection,
+    endProjection,
+    tableauDeBordPeriodique {
+      items{
+        iteration,
+        value,
+        tableauDeBordParam {
+          composant,
+          type,
+          position
+        }
+      }
+    }
+  }
+}

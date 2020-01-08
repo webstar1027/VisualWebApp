@@ -1,0 +1,3 @@
+query fetchLogementCounts($simulationID: String!) {
+  fetchLogementCounts(simulationID: $simulationID)
+}

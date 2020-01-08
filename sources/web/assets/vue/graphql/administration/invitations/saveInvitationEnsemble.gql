@@ -1,0 +1,5 @@
+mutation saveInvitationEnsemble($ensembleID: String!, $entites: [String!]!) {
+    saveInvitationEnsemble (ensembleID: $ensembleID, entites: $entites) {
+        id
+    }
+}

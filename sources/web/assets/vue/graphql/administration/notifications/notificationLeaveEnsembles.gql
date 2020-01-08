@@ -1,0 +1,15 @@
+query notificationLeaveEnsembles {
+  notificationLeaveEnsembles {
+    items {
+      ensemble{
+        id,
+        nom
+      }
+      entite{
+        id,
+        nom
+      },
+      statut
+    }
+  }
+}

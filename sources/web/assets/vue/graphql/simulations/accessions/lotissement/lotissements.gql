@@ -1,0 +1,28 @@
+query lotissements($simulationId: String!, $total: Boolean = false){
+  lotissements(simulationId: $simulationId){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      numero,
+      nom,
+      prixVente,
+      nombreLots,
+      prixVenteLot,
+      tauxBrute,
+      tauxEvolution,
+      dureeConstruction,
+      type,
+      periodique: lotissementPeriodique{
+        items {
+          iteration,
+          portagePropres,
+          coutsInternes,
+          nombreLivres
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

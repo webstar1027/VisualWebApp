@@ -1,0 +1,7 @@
+mutation saveEnsemble($ensembleID: String, $nom: String!, $description: String, $estActive: Boolean!, $referents: [String!]!) {
+    saveEnsemble (ensembleID: $ensembleID, nom: $nom, description: $description, estActive: $estActive, referents: $referents) {
+        id,
+        nom,
+        description
+    }
+}

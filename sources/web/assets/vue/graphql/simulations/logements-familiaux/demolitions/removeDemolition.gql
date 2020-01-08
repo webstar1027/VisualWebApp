@@ -1,0 +1,3 @@
+mutation removeDemolition($demolitionUUID: String!, $simulationId: String!){
+  removeDemolition(demolitionUUID: $demolitionUUID, simulationId: $simulationId)
+}

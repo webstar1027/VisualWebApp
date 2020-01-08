@@ -1,0 +1,10 @@
+mutation saveAccessionCodification($uuid: String, $simulationId: String!, $activite: String!) {
+  saveAccessionCodification(uuid: $uuid, simulationId: $simulationId, activite: $activite) {
+    id,
+    activite,
+    simulation {
+      id,
+      nom
+    }
+  }
+}

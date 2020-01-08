@@ -1,0 +1,9 @@
+mutation saveVefa($vefa: VefaInput!) {
+  saveVefa(vefa: $vefa) {
+    simulation{
+      nom
+    },
+    id,
+    numero
+  }
+}

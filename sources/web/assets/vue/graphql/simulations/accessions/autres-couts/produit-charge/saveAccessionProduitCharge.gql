@@ -1,0 +1,14 @@
+mutation saveAccessionProduitCharge($produitCharge: AccessionProduitChargeInput!) {
+  saveAccessionProduitCharge(produitCharge: $produitCharge) {
+    libelle,
+    indexation,
+    tauxDevolution,
+    type,
+    accessionProduitsChargesPeriodique{
+      items{
+        iteration,
+        value
+      }
+    }
+  }
+}

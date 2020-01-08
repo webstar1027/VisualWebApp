@@ -1,0 +1,5 @@
+mutation saveIndiceTauxPeriodique($indiceTauxID : String!, $iteration : Int!, $valeur : Float, $simulationId: String!){
+    saveIndiceTauxPeriodique(indiceTauxID: $indiceTauxID, iteration: $iteration, valeur : $valeur, simulationId: $simulationId){
+    iteration
+    }
+}

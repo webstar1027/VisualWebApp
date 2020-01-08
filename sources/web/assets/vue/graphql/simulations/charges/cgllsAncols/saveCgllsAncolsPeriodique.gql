@@ -1,0 +1,5 @@
+mutation saveCgllsAncolsPeriodique($cgllsAncolsID : String!, $iteration : Int!, $valeur : Float, $simulationID: String!){
+    saveCgllsAncolsPeriodique(cgllsAncolsID: $cgllsAncolsID, iteration: $iteration, valeur : $valeur, simulationID: $simulationID){
+    iteration
+    }
+}

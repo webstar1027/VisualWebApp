@@ -1,0 +1,67 @@
+query demolitions($simulationId: String!, $total: Boolean = false){
+  demolitions(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      simulation{
+        nom,
+        description
+      },
+      nGroupe,
+      nSousGroupe,
+      nomGroupe,
+      information,
+      numero,
+      nomTranche,
+      conventionAnru,
+      surfaceDemolie,
+      nombreLogementDemolis,
+      dateDemolution,
+      indexationIcc,
+      coutDemolution,
+      remboursementCrd,
+      coutAnnexes,
+      remboursementSubventions,
+      foundsPropres,
+      subventionsEtat,
+      subventionsAnru,
+      subventionsEpci,
+      subventionsDepartement,
+      subventionsRegion,
+      subventionsCollecteur,
+      autresSubventions,
+      montant,
+      tfpb,
+      maintenanceCourante,
+      grosEntretien,
+      nomCategorie,
+      surfaceMoyenne,
+      loyerMensuel,
+      logementsConventionees,
+      nombreAnneesAmortissements,
+      type,
+      typeEmpruntDemolition{
+        items{
+          montant,
+          datePremiere,
+          quotiteEmprunt,
+          typesEmprunts {
+            id,
+            nom
+          }
+        }
+      },
+      demolitionPeriodique {
+        items{
+          iteration,
+          partCapital,
+          partInterets,
+          nombreLogements,
+          coutMoyen,
+          remboursement,
+          coutAnnexes
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

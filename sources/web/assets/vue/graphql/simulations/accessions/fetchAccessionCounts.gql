@@ -1,0 +1,3 @@
+query fetchAccessionCounts($simulationID: String!) {
+  fetchAccessionCounts(simulationID: $simulationID)
+}

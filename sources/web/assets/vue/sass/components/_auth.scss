@@ -1,0 +1,30 @@
+.auth-wrap{
+    padding-top: 100px;
+    .el-button,
+    .el-input ,
+    .el-input__inner{
+        border-radius: 20px;
+    }
+    img{
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+        height: 250px;
+    }
+    .form-label{
+        color: inherit;
+        margin-left: 20px;
+    }
+
+    .el-form-item__label{
+        color: white;
+        padding: 0;
+        line-height: unset;
+    }
+}
+
+@media screen and(max-width: 768px){
+    .auth-wrap{
+        padding-top: 100px;
+    }
+}

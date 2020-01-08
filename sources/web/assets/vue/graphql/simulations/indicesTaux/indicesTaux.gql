@@ -1,0 +1,18 @@
+query indicesTaux($simulationID: String!) {
+    indicesTaux(simulationID: $simulationID) {
+          count
+          items(limit: 8, offset: 0) {
+                id,
+                type,
+                ecart,
+                indexationSurInflation,
+                indicesTauxPeriodique {
+                      count,
+                      items(limit: 50, offset: 0) {
+                        iteration,
+                        valeur
+                      }
+                }
+          }
+    }
+}

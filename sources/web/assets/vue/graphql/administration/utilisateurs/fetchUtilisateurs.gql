@@ -1,0 +1,19 @@
+query fetchUtilisateurs($limit: Int!, $offset: Int!,$nom: String, $entite: String, $ensemble: String, $simulationID: String!, $currentEntite:String!, $sortColumn: String!, $sortOrder: String!) {
+	fetchUtilisateurs(nom: $nom, entite: $entite, ensemble: $ensemble, simulationID:$simulationID, currentEntite: $currentEntite, sortColumn: $sortColumn, sortOrder: $sortOrder) {
+		items(limit: $limit, offset: $offset) {
+			id,
+			nom,
+			email,
+			estActive,
+			utilisateursRolesEntites{
+				items{
+					entite{
+						id
+						nom
+					}
+				}
+			}			
+		}
+		count
+	}
+}

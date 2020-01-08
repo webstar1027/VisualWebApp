@@ -1,0 +1,24 @@
+query produitCharges($simulationId: String!, $total: Boolean = false) {
+  produitCharges(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      number,
+      libelle,
+      indexation,
+      tauxDevolution,
+      type,
+      codification {
+        id
+        numero,
+        activite
+      },
+      produitsChargesPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

@@ -1,0 +1,25 @@
+query patrimoinesFoyer($simulationID: String!, $total: Boolean = false){
+  patrimoinesFoyer(simulationID: $simulationID){
+    items @skip(if: $total) {
+      simulation{
+        nom
+      },
+      id,
+      nGroupe,
+      nSousGroupe,
+      nomGroupe,
+      informations,
+      nombreLogements,
+      secteurFinancier,
+      natureOperation,
+      tauxEvolutionRedevances,
+      periodique: patrimoineFoyersPeriodique{
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

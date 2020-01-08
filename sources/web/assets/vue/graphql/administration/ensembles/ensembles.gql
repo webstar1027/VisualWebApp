@@ -1,0 +1,26 @@
+query ensembles($limit: Int!, $offset: Int!, $nom: String, $description: String, $creePar: String, $modifiePar: String, $entite: String, $referent: String, $sortColumn: String!, $sortOrder: String!) {
+  ensembles(nom: $nom, description: $description, creePar: $creePar, modifiePar: $modifiePar, entite: $entite, referent: $referent, sortColumn: $sortColumn, sortOrder: $sortOrder) {
+    items(limit: $limit, offset: $offset) {
+      id
+      nom
+      description
+      creePar {
+        nom
+        prenom
+        email
+      }
+      dateCreation
+      modifiePar {
+        nom
+        prenom
+        email
+      }
+      estActive
+      dateModification
+      entitesByEnsemblesEntites {
+        nom
+      }
+    }
+    count
+  }
+}

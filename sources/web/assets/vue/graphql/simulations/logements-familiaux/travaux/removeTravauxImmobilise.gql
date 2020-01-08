@@ -1,0 +1,3 @@
+mutation removeTravauxImmobilise($travauxImmobiliseUUID: String!, $simulationId: String!){
+  removeTravauxImmobilise(travauxImmobiliseUUID: $travauxImmobiliseUUID, simulationId: $simulationId)
+}

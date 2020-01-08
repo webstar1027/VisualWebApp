@@ -1,0 +1,14 @@
+mutation savePortageTresoreriePeriodique($portageTresorerie: PortageTresorerieInput!){
+  savePortageTresoreriePeriodique(portageTresorerie: $portageTresorerie){
+    id,
+    nom,
+    type,
+    estParametre,
+    portageTresoreriePeriodique{
+      items(limit: 50, offset:0){
+        iteration,
+        valeur
+      }
+    }
+  }
+}

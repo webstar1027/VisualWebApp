@@ -1,0 +1,45 @@
+.font {
+  &-weight {
+    &-medium {
+      font-weight: 500 !important;
+    }
+    &-semibold {
+      font-weight: 600 !important;
+    }
+  }
+
+  &-small {
+    font-size: 13px !important;
+
+    &er {
+      font-size: 11px !important;
+    }
+    &est {
+      font-size: 9px !important;
+    }
+  }
+
+  &-large{
+    font-size: 20px !important;
+  }
+  &-larger{
+    font-size: 25px !important;
+  }
+
+  &-family-2 {
+    @include font-2;
+  }
+}
+
+
+.admin-content-title{
+  font-weight: 700;
+  font-size: 25px;
+  color: #00436f;
+  margin-bottom: 1em;
+  width: 70%;
+}
+
+.export-button{
+  margin-left:10px;
+}

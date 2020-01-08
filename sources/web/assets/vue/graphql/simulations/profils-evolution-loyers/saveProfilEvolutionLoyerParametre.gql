@@ -1,0 +1,5 @@
+mutation saveProfilEvolutionLoyerParametre($idParametre: String!, $plafonnement: Boolean!){
+    saveProfilEvolutionLoyerParametre(idParametre: $idParametre, plafonnement: $plafonnement){
+    id
+    }
+}

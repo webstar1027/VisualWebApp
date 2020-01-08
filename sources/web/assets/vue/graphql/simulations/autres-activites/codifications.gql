@@ -1,0 +1,14 @@
+query codifications($simulationId: String!, $total: Boolean = false) {
+  codifications(simulationId: $simulationId) {
+    items @skip(if: $total) {
+      id,
+      numero,
+      activite,
+      simulation {
+        id,
+        nom
+      }
+    }
+    count @include(if: $total)
+  }
+}

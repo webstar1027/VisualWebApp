@@ -1,0 +1,22 @@
+query fondDeRoulement($simulationId : String!){
+  fondDeRoulement(simulationId : $simulationId){
+    items{
+      id,
+      nom,
+      type,
+      tauxEvolution,
+      deletable,
+      dateEcheance,
+      typeEmprunt {
+        id,
+        nom
+      },
+      fondDeRoulementPeriodique{
+        items(limit: 50, offset:0){
+          iteration,
+          valeur
+        }
+      }
+    }
+  }
+}

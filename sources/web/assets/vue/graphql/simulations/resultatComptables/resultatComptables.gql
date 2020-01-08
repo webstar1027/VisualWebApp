@@ -1,0 +1,20 @@
+query resultatComptables($simulationId: String!, $total: Boolean = false){
+  resultatComptables(simulationId: $simulationId) {
+    items @skip(if: $total){
+      id,
+      simulation{
+        nom,
+        description
+      }
+      libelle,
+      deletable,
+      resultatComptablePeriodique {
+        items{
+          iteration,
+          value
+        }
+      }
+    }
+    count @include(if: $total)
+  }
+}

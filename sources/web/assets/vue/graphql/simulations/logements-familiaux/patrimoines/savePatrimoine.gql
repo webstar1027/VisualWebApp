@@ -1,0 +1,27 @@
+mutation savePatrimoine($patrimoine: PatrimoineInput!) {
+  savePatrimoine(patrimoine: $patrimoine) {
+    simulation{
+      nom
+    },
+    profilsEvolutionLoyers{
+      id,
+      nom
+    },
+    id,
+    nGroupe,
+    nSousGroupe,
+    nomGroupe,
+    informations,
+    conventionne,
+    surfaceQuittancee,
+    nombreLogements,
+    loyerMensuel,
+    loyerMensuelPlafond,
+    secteurFinancier,
+    zoneGeographique,
+    natureOperation,
+    typeHabitat,
+    rehabilite,
+    anneeMes
+  }
+}

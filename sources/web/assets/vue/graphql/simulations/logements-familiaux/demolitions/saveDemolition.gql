@@ -1,0 +1,57 @@
+mutation saveDemolition($demolition: DemolitionInput!) {
+    saveDemolition(demolition:$demolition) {
+        id,
+        simulation{
+            nom,
+            description
+        },
+        nGroupe,
+        nSousGroupe,
+        information,
+        numero,
+        nomTranche,
+        conventionAnru,
+        surfaceDemolie,
+        nombreLogementDemolis,
+        dateDemolution,
+        indexationIcc,
+        coutDemolution,
+        remboursementCrd,
+        coutAnnexes,
+        remboursementSubventions,
+        foundsPropres,
+        subventionsEpci,
+        subventionsDepartement,
+        subventionsRegion,
+        subventionsCollecteur,
+        autresSubventions,
+        montant,
+        tfpb,
+        maintenanceCourante,
+        grosEntretien,
+        nomCategorie,
+        surfaceMoyenne,
+        loyerMensuel,
+        logementsConventionees,
+        nombreAnneesAmortissements,
+        type,
+        typeEmpruntDemolition{
+            items{
+                montant,
+                datePremiere,
+                quotiteEmprunt
+            }
+        },
+        demolitionPeriodique {
+            items{
+                iteration,
+                partCapital,
+                partInterets,
+                nombreLogements,
+                coutMoyen,
+                remboursement,
+                coutAnnexes
+            }
+        }
+    }
+}

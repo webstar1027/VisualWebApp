@@ -1,0 +1,5 @@
+mutation saveIndiceTaux($indiceTauxID : String!, $indexSurInflation : Boolean, $ecart : Float, $simulationId: String!){
+    saveIndiceTaux(indiceTauxID: $indiceTauxID, indexSurInflation: $indexSurInflation, ecart : $ecart, simulationId: $simulationId){
+    id
+    }
+}

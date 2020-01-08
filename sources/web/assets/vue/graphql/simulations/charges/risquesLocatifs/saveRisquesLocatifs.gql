@@ -1,0 +1,14 @@
+mutation saveRisqueLocatif($simulationId: String!, $iteration: Int!, $value: Float, $type: Int!) {
+  saveRisqueLocatif(simulationId: $simulationId, iteration: $iteration, value: $value, type: $type) {
+    simulation{
+      nom
+    },
+    id,
+    iteration,
+    acne,
+    tauxVacancePatrimoine,
+    tauxVacanceGarages,
+    tauxVacanceCommerciaux,
+    tauxAnnuel
+  }
+}

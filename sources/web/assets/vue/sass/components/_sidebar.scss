@@ -1,0 +1,137 @@
+$bo-item-pd-x: 10px;
+$bo-menu-item-lh: 45px;
+$bo-menu-item-icon-pd-x: 10px;
+$bo-submenu-item-lh: 25px;
+$bo-sidebar-w: 250px;
+
+@mixin bo-button {
+  display: block;
+  height: auto;
+  border-radius: 0;
+  margin-left: 0 !important;
+  white-space: normal;
+  span {
+    display: flex;
+    line-height: $bo-submenu-item-lh;
+    text-align: left;
+  }
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 120px;
+  width: $bo-sidebar-w;
+
+  &.aside-homepage  {
+    width: 50px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  &.sidebar-back {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      a {
+        padding: 35px 20px;
+        margin: 5px 0;
+        text-align: center;
+        display: block;
+        .material-icons {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-admin.bo {
+  overflow: hidden;
+  .bo-sim-title {
+    line-height: $breadcrumb-lh;
+    font-size: 15px;
+  }
+  .bo-menu {
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 13px;
+    font-weight: 600;
+    .bo-menu-item-wrap {
+      .bo-menu-item {
+        width: $bo-sidebar-w;
+        padding: 0 10px;
+        width: 100%;
+        @include bo-button();
+        display: flex;
+        span{
+          line-height: $bo-menu-item-lh;
+        }
+        &.el-button {
+          &:focus{
+            background: $primary;
+            color: white;
+          }
+
+          &.active {
+            background: darken($primary,10%);
+            &:hover,&:focus {
+              background: darken($primary,12%);
+              color: inherit;
+            }
+          }
+        }
+        .material-icons {
+          padding: 0 $bo-menu-item-icon-pd-x;
+        }
+        .bo-menu-item-title {
+          text-transform: uppercase;
+          display: block;
+        }
+      }
+      .bo-submenu {
+        border-top: 1px solid lighten($primary, 20%);
+        .bo-submenu-item {
+          padding-left: 50px;
+          &.el-button {
+            background: #409fee;
+            @include bo-button();
+            width: $bo-sidebar-w;
+            &:hover,&:focus {
+              background: lighten($primary, 20%);
+              color: white;
+            }
+          }
+          &:not(:last-child) {
+            margin-bottom: 1px;
+          }
+          &.current {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .resultats-btn-wrap{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 5;
+  }
+}
